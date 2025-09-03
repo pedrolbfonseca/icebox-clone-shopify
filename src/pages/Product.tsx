@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +9,18 @@ import { toast } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useCart } from "@/contexts/CartContext";
+
+// Declare ShopifyBuy types
+declare global {
+  interface Window {
+    ShopifyBuy: {
+      buildClient: (config: { domain: string; storefrontAccessToken: string }) => any;
+      UI: {
+        onReady: (client: any) => Promise<any>;
+      };
+    };
+  }
+}
 
 const products = [
   {
@@ -241,6 +253,113 @@ const Product = () => {
     toast.success("Adicionado à lista de desejos!", {
       description: `${product.name} foi salvo na sua lista de desejos.`,
     });
+  };
+
+  useEffect(() => {
+    console.log('Product loaded:', { 
+      productId: product?.id, 
+      isProduct9: product?.id === 9,
+      elementExists: !!document.getElementById('product-component-1756914133669')
+    });
+
+    if (product?.id === 9) {
+      // Wait for element to be rendered
+      setTimeout(() => {
+        const element = document.getElementById('product-component-1756914133669');
+        console.log('Widget element found:', !!element);
+        
+        if (element) {
+          loadShopifyWidget();
+        }
+      }, 100);
+    }
+  }, [product]);
+
+  const loadShopifyWidget = () => {
+    console.log('Loading Shopify widget...');
+    
+    const script = document.createElement('script');
+    script.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+    script.async = true;
+    script.onload = () => {
+      console.log('Shopify script loaded');
+      initShopifyWidget();
+    };
+    document.head.appendChild(script);
+  };
+
+  const initShopifyWidget = () => {
+    if (window.ShopifyBuy && window.ShopifyBuy.UI) {
+      console.log('Initializing Shopify widget...');
+      
+      const client = window.ShopifyBuy.buildClient({
+        domain: '2jxw06-70.myshopify.com',
+        storefrontAccessToken: 'e74939e8f38608461f2f49b8bc31f90f',
+      });
+
+      window.ShopifyBuy.UI.onReady(client).then((ui) => {
+        console.log('Creating Shopify component...');
+        
+        ui.createComponent('product', {
+          id: '9844223770910',
+          node: document.getElementById('product-component-1756914133669'),
+          moneyFormat: '%24%7B%7Bamount%7D%7D',
+          options: {
+            product: {
+              styles: {
+                product: {
+                  '@media (min-width: 601px)': {
+                    'max-width': 'calc(25% - 20px)',
+                    'margin-left': '20px',
+                    'margin-bottom': '50px'
+                  }
+                },
+                button: {
+                  'font-family': 'Arial, sans-serif',
+                  color: '#000000',
+                  ':hover': {
+                    color: '#000000',
+                    'background-color': '#65b3cc'
+                  },
+                  'background-color': '#70c7e3',
+                  ':focus': {
+                    'background-color': '#65b3cc'
+                  }
+                }
+              },
+              contents: {
+                img: false,
+                title: false,
+                price: false
+              },
+              text: {
+                button: 'Add to cart'
+              }
+            },
+            cart: {
+              styles: {
+                button: {
+                  'font-family': 'Arial, sans-serif',
+                  color: '#000000',
+                  ':hover': {
+                    color: '#000000',
+                    'background-color': '#65b3cc'
+                  },
+                  'background-color': '#70c7e3',
+                  ':focus': {
+                    'background-color': '#65b3cc'
+                  }
+                }
+              },
+              text: {
+                total: 'Subtotal',
+                button: 'Checkout'
+              }
+            }
+          }
+        });
+      });
+    }
   };
 
   return (
@@ -523,169 +642,6 @@ const Product = () => {
       </div>
       
       <Footer />
-      
-      {/* Shopify Buy Button Script for Chrome Hearts Product */}
-      {product?.id === 9 && (
-        <script 
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: '2jxw06-70.myshopify.com',
-      storefrontAccessToken: 'e74939e8f38608461f2f49b8bc31f90f',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '9844223770910',
-        node: document.getElementById('product-component-1756914133669'),
-        moneyFormat: '%24%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Arial, sans-serif",
-        "color": "#000000",
-        ":hover": {
-          "color": "#000000",
-          "background-color": "#65b3cc"
-        },
-        "background-color": "#70c7e3",
-        ":focus": {
-          "background-color": "#65b3cc"
-        }
-      }
-    },
-    "contents": {
-      "img": false,
-      "title": false,
-      "price": false
-    },
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Arial, sans-serif",
-        "color": "#000000",
-        ":hover": {
-          "color": "#000000",
-          "background-color": "#65b3cc"
-        },
-        "background-color": "#70c7e3",
-        ":focus": {
-          "background-color": "#65b3cc"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Arial, sans-serif",
-        "color": "#000000",
-        ":hover": {
-          "color": "#000000",
-          "background-color": "#65b3cc"
-        },
-        "background-color": "#70c7e3",
-        ":focus": {
-          "background-color": "#65b3cc"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    }
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Arial, sans-serif",
-        "background-color": "#70c7e3",
-        ":hover": {
-          "background-color": "#65b3cc"
-        },
-        ":focus": {
-          "background-color": "#65b3cc"
-        }
-      },
-      "count": {
-        "color": "#000000",
-        ":hover": {
-          "color": "#000000"
-        }
-      },
-      "iconPath": {
-        "fill": "#000000"
-      }
-    }
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-            `
-          }}
-        />
-      )}
     </div>
   );
 };

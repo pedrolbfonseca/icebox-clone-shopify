@@ -13,9 +13,9 @@ const Header = () => {
   const handleSignOut = async () => {
     try {
       await signOut();
-      toast.success('Logout realizado com sucesso!');
+      toast.success("Logout successful!");
     } catch (error) {
-      toast.error('Erro ao sair');
+      toast.error("Error signing out");
     }
   };
 
@@ -74,7 +74,7 @@ const Header = () => {
             {user ? (
               <div className="flex items-center space-x-2">
                 <span className="text-sm text-muted-foreground hidden md:inline">
-                  Olá, {user.email?.split('@')[0]}
+                  Hello, {user.email?.split("@")[0]}
                 </span>
                 <Button variant="ghost" size="icon" onClick={handleSignOut}>
                   <LogOut className="h-5 w-5" />

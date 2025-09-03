@@ -55,8 +55,8 @@ const ProductGrid = () => {
     e.preventDefault();
     e.stopPropagation();
     addToCart(product);
-    toast.success("Produto adicionado ao carrinho!", {
-      description: `${product.name} foi adicionado ao seu carrinho.`,
+    toast.success("Product added to cart!", {
+      description: `${product.name} has been added to your cart.`,
     });
   };
 
@@ -65,7 +65,7 @@ const ProductGrid = () => {
     e.stopPropagation();
     
     if (!user) {
-      toast.error("Faça login para usar a lista de desejos");
+      toast.error("Please sign in to use wishlist");
       return;
     }
 

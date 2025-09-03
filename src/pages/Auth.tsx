@@ -39,9 +39,9 @@ const Auth = () => {
 
       if (error) throw error;
 
-      toast.success('Conta criada! Verifique seu email para confirmação.');
+      toast.success("Account created! Check your email for confirmation.");
     } catch (error: any) {
-      toast.error(error.message || 'Erro ao criar conta');
+      toast.error(error.message || "Error creating account");
     } finally {
       setLoading(false);
     }
@@ -59,10 +59,10 @@ const Auth = () => {
 
       if (error) throw error;
 
-      toast.success('Login realizado com sucesso!');
+      toast.success("Login successful!");
       navigate('/');
     } catch (error: any) {
-      toast.error(error.message || 'Erro ao fazer login');
+      toast.error(error.message || "Login error");
     } finally {
       setLoading(false);
     }
@@ -79,7 +79,7 @@ const Auth = () => {
 
       if (error) throw error;
     } catch (error: any) {
-      toast.error(error.message || 'Erro ao fazer login com Google');
+      toast.error(error.message || "Error signing in with Google");
     }
   };
 
@@ -88,13 +88,13 @@ const Auth = () => {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">HypeCo</CardTitle>
-          <CardDescription>Entre na sua conta ou crie uma nova</CardDescription>
+          <CardDescription>Sign in to your account or create a new one</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="signin" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="signin">Entrar</TabsTrigger>
-              <TabsTrigger value="signup">Criar Conta</TabsTrigger>
+              <TabsTrigger value="signin">Sign In</TabsTrigger>
+              <TabsTrigger value="signup">Create Account</TabsTrigger>
             </TabsList>
             
             <TabsContent value="signin">
@@ -107,22 +107,22 @@ const Auth = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    placeholder="seu@email.com"
+                    placeholder="your@email.com"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="signin-password">Senha</Label>
+                  <Label htmlFor="signin-password">Password</Label>
                   <Input
                     id="signin-password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    placeholder="Sua senha"
+                    placeholder="Your password"
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={loading}>
-                  {loading ? 'Entrando...' : 'Entrar'}
+                  {loading ? "Signing in..." : "Sign In"}
                 </Button>
               </form>
             </TabsContent>
@@ -137,23 +137,23 @@ const Auth = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    placeholder="seu@email.com"
+                    placeholder="your@email.com"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="signup-password">Senha</Label>
+                  <Label htmlFor="signup-password">Password</Label>
                   <Input
                     id="signup-password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    placeholder="Mínimo 6 caracteres"
+                    placeholder="Minimum 6 characters"
                     minLength={6}
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={loading}>
-                  {loading ? 'Criando...' : 'Criar Conta'}
+                  {loading ? "Creating..." : "Create Account"}
                 </Button>
               </form>
             </TabsContent>
@@ -166,7 +166,7 @@ const Auth = () => {
               </div>
               <div className="relative flex justify-center text-xs uppercase">
                 <span className="bg-background px-2 text-muted-foreground">
-                  Ou continue com
+                  Or continue with
                 </span>
               </div>
             </div>

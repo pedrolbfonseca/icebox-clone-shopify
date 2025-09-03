@@ -38,7 +38,7 @@ export const useWishlist = () => {
 
   const addToWishlist = async (productId: string) => {
     if (!user) {
-      toast.error('Faça login para salvar na lista de desejos');
+      toast.error("Please sign in to save to wishlist");
       return;
     }
 
@@ -50,12 +50,12 @@ export const useWishlist = () => {
       if (error) throw error;
 
       setWishlistItems(prev => [...prev, productId]);
-      toast.success('Adicionado à lista de desejos!');
+      toast.success("Added to wishlist!");
     } catch (error: any) {
       if (error.code === '23505') {
-        toast.error('Item já está na lista de desejos');
+        toast.error("Item already in wishlist");
       } else {
-        toast.error('Erro ao adicionar à lista de desejos');
+        toast.error("Error adding to wishlist");
       }
     }
   };
@@ -73,9 +73,9 @@ export const useWishlist = () => {
       if (error) throw error;
 
       setWishlistItems(prev => prev.filter(id => id !== productId));
-      toast.success('Removido da lista de desejos!');
+      toast.success("Removed from wishlist!");
     } catch (error) {
-      toast.error('Erro ao remover da lista de desejos');
+      toast.error("Error removing from wishlist");
     }
   };
 

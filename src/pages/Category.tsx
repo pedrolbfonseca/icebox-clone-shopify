@@ -60,7 +60,7 @@ const products = [
   },
   {
     id: 5,
-    name: "Tennis Bracelet",
+    name: "Diamond Tennis Bracelet",
     price: "CAD$ 10,660",
     originalPrice: "CAD$ 12,740",
     image: "placeholder",
@@ -108,7 +108,7 @@ const products = [
   },
   {
     id: 9,
-    name: "Chrome Hearts Inspired 14K Gold Plated Cross Link Bracelet",
+    name: "Chrome Hearts Cross Bracelet",
     price: "CAD$ 63",
     originalPrice: null,
     image: "/lovable-uploads/5a4ea2ea-8a67-498a-b4cb-cf901f3c34b5.png",
@@ -122,6 +122,25 @@ const products = [
     features: ["14K Gold Plated", "Cross Link Design", "HypeCo Guarantee", "Fast Shipping 4-7 Days"],
     rating: 4.9,
     reviews: 187
+  },
+  {
+    id: 10,
+    name: "Infinity Four Clover Bracelet",
+    price: "$97",
+    originalPrice: null,
+    image: "/lovable-uploads/c35a4ea4-7563-4030-9a2e-6d6bac497874.png",
+    images: [
+      "/lovable-uploads/c35a4ea4-7563-4030-9a2e-6d6bac497874.png",
+      "/lovable-uploads/cf7ef13f-50c0-4696-8255-dfed0efe5fb1.png",
+      "/lovable-uploads/5df4f604-f9cb-46d4-beeb-6ddd7148c090.png",
+      "/lovable-uploads/15d81795-f0d9-4522-9fb2-23c756194c84.png",
+      "/lovable-uploads/5d75a19e-9b0c-4b7d-a6f0-beecf78ae16b.png"
+    ],
+    category: "Bracelets",
+    description: "Luxury Chrome Hearts inspired cross link bracelet featuring intricate four-clover motifs with premium micro-paved crystal setting.",
+    features: ["Premium Crystal Setting", "Multiple Color Options", "Adjustable Size", "Luxury Gift Box"],
+    rating: 4.8,
+    reviews: 142
   }
 ];
 
@@ -265,7 +284,7 @@ const Category = () => {
                 <Card className="group cursor-pointer overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300">
                   <div className="relative overflow-hidden">
                     <div className="aspect-square bg-muted flex items-center justify-center relative">
-                      {product.id === 9 ? (
+                      {(product.id === 9 || product.id === 10) ? (
                         <img 
                           src={product.image} 
                           alt={product.name}
@@ -277,7 +296,7 @@ const Category = () => {
                           }}
                         />
                       ) : null}
-                      <div className={`${product.id === 9 ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 items-center justify-center`}>
+                      <div className={`${(product.id === 9 || product.id === 10) ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 items-center justify-center`}>
                         <span className="text-4xl font-bold text-primary/50">
                           {product.category.charAt(0)}
                         </span>

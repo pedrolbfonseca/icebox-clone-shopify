@@ -208,31 +208,31 @@ const products = [
   },
   {
     id: 10,
-    name: "Infinity Bracelet Four Clover Micro Paved 5A+",
+    name: "Chrome Hearts Inspired Cross Link Bracelet",
     price: "$97",
     originalPrice: null,
-    image: "/src/assets/infinity-bracelet-1.png",
+    image: "/lovable-uploads/c35a4ea4-7563-4030-9a2e-6d6bac497874.png",
     images: [
-      "/src/assets/infinity-bracelet-1.png",
-      "/src/assets/infinity-bracelet-2.png",
-      "/src/assets/infinity-bracelet-3.png",
-      "/src/assets/infinity-bracelet-4.png",
-      "/src/assets/infinity-bracelet-5.png"
+      "/lovable-uploads/c35a4ea4-7563-4030-9a2e-6d6bac497874.png",
+      "/lovable-uploads/cf7ef13f-50c0-4696-8255-dfed0efe5fb1.png",
+      "/lovable-uploads/5df4f604-f9cb-46d4-beeb-6ddd7148c090.png",
+      "/lovable-uploads/15d81795-f0d9-4522-9fb2-23c756194c84.png",
+      "/lovable-uploads/5d75a19e-9b0c-4b7d-a6f0-beecf78ae16b.png"
     ],
     category: "Bracelets",
-    description: "Exquisite infinity bracelet featuring four-clover design with micro-paved 5A+ grade cubic zirconia. Crafted with premium materials and precision engineering for exceptional brilliance and lasting elegance. This luxury piece combines timeless symbolism with contemporary craftsmanship, making it perfect for special occasions or everyday glamour.",
-    features: ["5A+ Grade CZ Stones", "Micro Paved Setting", "Adjustable Size 6-8 inches", "Premium Gift Box", "Tarnish Resistant", "Lead & Nickel Free"],
+    description: "Luxury Chrome Hearts inspired cross link bracelet featuring intricate four-clover motifs with premium micro-paved crystal setting. Available in multiple stunning colorways including classic silver, vibrant purple, and multicolor designs. Crafted with precision engineering for exceptional brilliance and lasting elegance. This statement piece combines gothic aesthetics with refined craftsmanship, making it perfect for both casual and elevated looks.",
+    features: ["Premium Crystal Setting", "Multiple Color Options", "Adjustable Size 6-8 inches", "Luxury Gift Box", "Tarnish Resistant", "Lead & Nickel Free"],
     rating: 4.8,
     reviews: 142,
     sizes: ["One Size (Adjustable)"],
     specifications: {
-      "Material": "Premium Brass with Rhodium Plating",
-      "Stone Quality": "5A+ Grade Cubic Zirconia",
+      "Material": "Premium Stainless Steel with Crystal Setting",
+      "Stone Quality": "High-Grade Crystal Pavé",
       "Length": "6-8 inches (Adjustable Chain)",
-      "Width": "8mm",
-      "Clasp": "Lobster Claw with Extension Chain",
+      "Width": "10mm",
+      "Clasp": "Secure Lobster Claw with Extension Chain",
       "Shipping": "5-10 Business Days - Secure Packaging",
-      "Care": "Store in Jewelry Box, Clean with Soft Cloth"
+      "Care": "Clean with Soft Cloth, Store in Jewelry Box"
     }
   }
 ];

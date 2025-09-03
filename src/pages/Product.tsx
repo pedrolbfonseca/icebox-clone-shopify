@@ -208,7 +208,7 @@ const products = [
   },
   {
     id: 10,
-    name: "Chrome Hearts Inspired Cross Link Bracelet",
+    name: "Infinity Bracelet Four Clover Micro Paved 5A+",
     price: "$97",
     originalPrice: null,
     image: "/lovable-uploads/c35a4ea4-7563-4030-9a2e-6d6bac497874.png",

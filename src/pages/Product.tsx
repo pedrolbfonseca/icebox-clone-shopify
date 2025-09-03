@@ -259,13 +259,13 @@ const Product = () => {
     console.log('Product loaded:', { 
       productId: product?.id, 
       isProduct9: product?.id === 9,
-      elementExists: !!document.getElementById('product-component-1756914133669')
+      elementExists: !!document.getElementById('product-component-1756914985987')
     });
 
     if (product?.id === 9) {
       // Wait for element to be rendered
       setTimeout(() => {
-        const element = document.getElementById('product-component-1756914133669');
+        const element = document.getElementById('product-component-1756914985987');
         console.log('Widget element found:', !!element);
         
         if (element) {
@@ -302,7 +302,7 @@ const Product = () => {
         
         ui.createComponent('product', {
           id: '9844223770910',
-          node: document.getElementById('product-component-1756914133669'),
+          node: document.getElementById('product-component-1756914985987'),
           moneyFormat: '%24%7B%7Bamount%7D%7D',
           options: {
             product: {
@@ -354,6 +354,30 @@ const Product = () => {
               text: {
                 total: 'Subtotal',
                 button: 'Checkout'
+              },
+              popup: false
+            },
+            toggle: {
+              styles: {
+                toggle: {
+                  'font-family': 'Arial, sans-serif',
+                  'background-color': '#70c7e3',
+                  ':hover': {
+                    'background-color': '#65b3cc'
+                  },
+                  ':focus': {
+                    'background-color': '#65b3cc'
+                  }
+                },
+                count: {
+                  color: '#000000',
+                  ':hover': {
+                    color: '#000000'
+                  }
+                },
+                iconPath: {
+                  fill: '#000000'
+                }
               }
             }
           }
@@ -520,7 +544,7 @@ const Product = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-3">Purchase</h3>
-                  <div id='product-component-1756914133669'></div>
+                  <div id='product-component-1756914985987'></div>
                 </div>
               </div>
             ) : (

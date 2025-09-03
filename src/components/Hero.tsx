@@ -14,7 +14,7 @@ const Hero = () => {
           <Link to="/category/men" className="relative group cursor-pointer overflow-hidden rounded-lg">
             <div className="aspect-[4/5] relative overflow-hidden bg-slate-800">
               <img 
-                src="/lovable-uploads/c764d453-08a8-4cf0-8fa2-0113eea60e54.png"
+                src="/lovable-uploads/98a79af7-4c77-4531-84ba-52a7d144317e.png"
                 alt="Men's Collection - Premium Chains and Pendants"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="eager"

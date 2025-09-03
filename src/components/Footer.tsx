@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin, Clock } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <img 
-              src="/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png" 
+              src="/lovable-uploads/ed7ff74f-77a0-4c15-b0a2-0a499014ca76.png" 
               alt="Hype Company Logo" 
               className="h-20 w-auto mb-4"
             />
@@ -49,11 +49,31 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h4 className="font-semibold text-foreground mb-4">Contact</h4>
-            <div className="space-y-2 text-muted-foreground">
-              <p>📧 contact@hypecompany.com</p>
-              <p>📱 +1 (437) 473-5348</p>
-              <p>📍 Toronto, Canada</p>
-              <p>🕒 Mon-Fri: 9am-6pm</p>
+            <div className="space-y-3 text-muted-foreground">
+              <div className="flex items-center space-x-3 group">
+                <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
+                  <Mail className="h-4 w-4 text-primary group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <span className="group-hover:text-primary transition-colors">contact@hypecompany.com</span>
+              </div>
+              <div className="flex items-center space-x-3 group">
+                <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
+                  <Phone className="h-4 w-4 text-primary group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <span className="group-hover:text-primary transition-colors">+1 (437) 473-5348</span>
+              </div>
+              <div className="flex items-center space-x-3 group">
+                <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
+                  <MapPin className="h-4 w-4 text-primary group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <span className="group-hover:text-primary transition-colors">Toronto, Canada</span>
+              </div>
+              <div className="flex items-center space-x-3 group">
+                <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
+                  <Clock className="h-4 w-4 text-primary group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <span className="group-hover:text-primary transition-colors">Mon-Fri: 9am-6pm</span>
+              </div>
             </div>
           </div>
         </div>

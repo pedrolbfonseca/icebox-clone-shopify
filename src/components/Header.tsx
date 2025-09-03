@@ -26,7 +26,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link to="/">
               <img 
-                src="/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png" 
+                src="/lovable-uploads/ed7ff74f-77a0-4c15-b0a2-0a499014ca76.png" 
                 alt="Hype Company Logo" 
                 className="h-16 w-auto"
               />
@@ -40,6 +40,7 @@ const Header = () => {
             <Link to="/category/rings" className="text-foreground hover:text-primary transition-colors">Rings</Link>
             <Link to="/category/chains" className="text-foreground hover:text-primary transition-colors">Chains</Link>
             <Link to="/category/watches" className="text-foreground hover:text-primary transition-colors">Watches</Link>
+            <a href="#about" className="text-foreground hover:text-primary transition-colors">About Us</a>
             <a href="#outlet" className="text-foreground hover:text-primary transition-colors">Outlet</a>
           </nav>
 

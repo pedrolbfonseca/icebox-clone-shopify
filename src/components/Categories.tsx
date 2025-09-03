@@ -1,22 +1,22 @@
 const categories = [
   {
-    name: "ANÉIS",
-    description: "Anéis exclusivos em ouro e diamantes",
+    name: "RINGS",
+    description: "Exclusive gold and diamond rings",
     icon: "💍"
   },
   {
-    name: "CORRENTES",
-    description: "Correntes premium em ouro 18k",
+    name: "CHAINS",
+    description: "Premium 18k gold chains",
     icon: "🔗"
   },
   {
-    name: "RELÓGIOS",
-    description: "Relógios de luxo suíços",
+    name: "WATCHES",
+    description: "Swiss luxury timepieces",
     icon: "⌚"
   },
   {
-    name: "BRINCOS",
-    description: "Brincos sofisticados com pedras preciosas",
+    name: "EARRINGS",
+    description: "Sophisticated earrings with precious stones",
     icon: "✨"
   }
 ];
@@ -27,10 +27,10 @@ const Categories = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            NOSSAS <span className="text-primary">CATEGORIAS</span>
+            OUR <span className="text-primary">CATEGORIES</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explore nossa coleção completa de joias de luxo
+            Explore our complete collection of luxury jewelry
           </p>
         </div>
 

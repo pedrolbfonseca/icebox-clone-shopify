@@ -9,12 +9,12 @@ const Header = () => {
         {/* Top bar */}
         <div className="flex items-center justify-between py-2 text-sm text-muted-foreground">
           <div className="hidden md:block">
-            Frete grátis em pedidos acima de R$ 500
+            Free shipping on orders over R$ 500
           </div>
           <div className="flex items-center space-x-4">
-            <span>Contato: (11) 99999-9999</span>
+            <span>Contact: (11) 99999-9999</span>
             <span>•</span>
-            <span>Suporte 24/7</span>
+            <span>24/7 Support</span>
           </div>
         </div>
 
@@ -29,18 +29,18 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <a href="#" className="text-foreground hover:text-primary transition-colors">Homem</a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">Mulher</a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">Anéis</a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">Correntes</a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">Relógios</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors">Men</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors">Women</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors">Rings</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors">Chains</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors">Watches</a>
             <a href="#" className="text-foreground hover:text-primary transition-colors">Outlet</a>
           </nav>
 
           {/* Search */}
           <div className="hidden md:flex items-center relative flex-1 max-w-md mx-8">
             <Input 
-              placeholder="Buscar produtos..." 
+              placeholder="Search products..." 
               className="pr-10 bg-muted border-border"
             />
             <Search className="absolute right-3 h-4 w-4 text-muted-foreground" />

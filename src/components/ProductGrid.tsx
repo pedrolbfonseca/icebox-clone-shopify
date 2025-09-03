@@ -5,51 +5,51 @@ import { ShoppingBag, Heart } from "lucide-react";
 const products = [
   {
     id: 1,
-    name: "Anel de Ouro 18k",
+    name: "18k Gold Ring",
     price: "R$ 2.500",
     originalPrice: "R$ 3.200",
     image: "placeholder",
-    category: "Anéis"
+    category: "Rings"
   },
   {
     id: 2,
-    name: "Corrente Cubana Premium",
+    name: "Premium Cuban Chain",
     price: "R$ 4.800",
     originalPrice: null,
     image: "placeholder", 
-    category: "Correntes"
+    category: "Chains"
   },
   {
     id: 3,
-    name: "Relógio Diamante",
+    name: "Diamond Watch",
     price: "R$ 12.000",
     originalPrice: "R$ 15.000",
     image: "placeholder",
-    category: "Relógios"
+    category: "Watches"
   },
   {
     id: 4,
-    name: "Brincos de Esmeralda",
+    name: "Emerald Earrings",
     price: "R$ 6.500",
     originalPrice: null,
     image: "placeholder",
-    category: "Brincos"
+    category: "Earrings"
   },
   {
     id: 5,
-    name: "Pulseira Tennis",
+    name: "Tennis Bracelet",
     price: "R$ 8.200",
     originalPrice: "R$ 9.800",
     image: "placeholder",
-    category: "Pulseiras"
+    category: "Bracelets"
   },
   {
     id: 6,
-    name: "Colar de Pérolas",
+    name: "Pearl Necklace",
     price: "R$ 3.800",
     originalPrice: null,
     image: "placeholder",
-    category: "Colares"
+    category: "Necklaces"
   }
 ];
 
@@ -59,11 +59,11 @@ const ProductGrid = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            PRODUTOS EM <span className="text-primary">DESTAQUE</span>
+            FEATURED <span className="text-primary">PRODUCTS</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Descubra nossa seleção exclusiva de joias premium, 
-            cuidadosamente curadas para você
+            Discover our exclusive selection of premium jewelry, 
+            carefully curated for you
           </p>
         </div>
 
@@ -93,7 +93,7 @@ const ProductGrid = () => {
                 {/* Sale badge */}
                 {product.originalPrice && (
                   <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
-                    PROMOÇÃO
+                    SALE
                   </div>
                 )}
               </div>
@@ -122,7 +122,7 @@ const ProductGrid = () => {
 
         <div className="text-center mt-12">
           <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            Ver Todos os Produtos
+            View All Products
           </Button>
         </div>
       </div>

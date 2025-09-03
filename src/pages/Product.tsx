@@ -495,77 +495,104 @@ const Product = () => {
               </div>
             )}
 
-            {/* Quantity */}
-            <div>
-              <h3 className="font-semibold text-foreground mb-3">Quantity</h3>
-              <div className="flex items-center space-x-3">
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                >
-                  -
-                </Button>
-                <span className="text-lg font-semibold px-4">{quantity}</span>
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  onClick={() => setQuantity(quantity + 1)}
-                >
-                  +
-                </Button>
+            {/* Quantity and Add to Cart for Chrome Hearts */}
+            {product.id === 9 ? (
+              <div className="grid grid-cols-2 gap-6 items-end">
+                <div>
+                  <h3 className="font-semibold text-foreground mb-3">Quantity</h3>
+                  <div className="flex items-center space-x-3">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    >
+                      -
+                    </Button>
+                    <span className="text-lg font-semibold px-4">{quantity}</span>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => setQuantity(quantity + 1)}
+                    >
+                      +
+                    </Button>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-3">Purchase</h3>
+                  <div id='product-component-1756914133669'></div>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div>
+                <h3 className="font-semibold text-foreground mb-3">Quantity</h3>
+                <div className="flex items-center space-x-3">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  >
+                    -
+                  </Button>
+                  <span className="text-lg font-semibold px-4">{quantity}</span>
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => setQuantity(quantity + 1)}
+                  >
+                    +
+                  </Button>
+                </div>
+              </div>
+            )}
 
-            {/* Action Buttons */}
-            <div className="space-y-4">
-              <div className="flex space-x-4">
-                {product.id === 9 ? (
-                  <>
-                    <div className="flex-1">
-                      <div id='product-component-1756914133669'></div>
-                    </div>
-                    <Button 
-                      size="lg" 
-                      variant="outline"
-                      onClick={handleAddToWishlist}
-                    >
-                      <Heart className="h-5 w-5" />
-                    </Button>
-                    <Button size="lg" variant="outline">
-                      <Share2 className="h-5 w-5" />
-                    </Button>
-                  </>
-                ) : (
-                  <>
-                    <Button 
-                      size="lg" 
-                      className="flex-1 bg-primary hover:bg-primary/90"
-                      onClick={handleAddToCart}
-                    >
-                      <ShoppingBag className="h-5 w-5 mr-2" />
-                      Add to Cart
-                    </Button>
-                    <Button 
-                      size="lg" 
-                      variant="outline"
-                      onClick={handleAddToWishlist}
-                    >
-                      <Heart className="h-5 w-5" />
-                    </Button>
-                    <Button size="lg" variant="outline">
-                      <Share2 className="h-5 w-5" />
-                    </Button>
-                  </>
-                )}
-              </div>
-              
-              {product.id !== 9 && (
+            {/* Action Buttons - Only for non-Chrome Hearts products */}
+            {product.id !== 9 && (
+              <div className="space-y-4">
+                <div className="flex space-x-4">
+                  <Button 
+                    size="lg" 
+                    className="flex-1 bg-primary hover:bg-primary/90"
+                    onClick={handleAddToCart}
+                  >
+                    <ShoppingBag className="h-5 w-5 mr-2" />
+                    Add to Cart
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    onClick={handleAddToWishlist}
+                  >
+                    <Heart className="h-5 w-5" />
+                  </Button>
+                  <Button size="lg" variant="outline">
+                    <Share2 className="h-5 w-5" />
+                  </Button>
+                </div>
+                
                 <Button size="lg" className="w-full" variant="secondary">
                   Buy Now - Fast Checkout
                 </Button>
-              )}
-            </div>
+              </div>
+            )}
+
+            {/* Wishlist and Share for Chrome Hearts */}
+            {product.id === 9 && (
+              <div className="flex space-x-4">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  onClick={handleAddToWishlist}
+                >
+                  <Heart className="h-5 w-5 mr-2" />
+                  Save to Wishlist
+                </Button>
+                <Button size="lg" variant="outline">
+                  <Share2 className="h-5 w-5 mr-2" />
+                  Share Product
+                </Button>
+              </div>
+            )}
 
             {/* Trust Signals */}
             <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border">

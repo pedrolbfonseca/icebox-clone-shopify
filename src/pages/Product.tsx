@@ -400,30 +400,209 @@ const Product = () => {
 
             {/* Action Buttons */}
             <div className="space-y-4">
-              <div className="flex space-x-4">
-                <Button 
-                  size="lg" 
-                  className="flex-1 bg-primary hover:bg-primary/90"
-                  onClick={handleAddToCart}
-                >
-                  <ShoppingBag className="h-5 w-5 mr-2" />
-                  Add to Cart
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  onClick={handleAddToWishlist}
-                >
-                  <Heart className="h-5 w-5" />
-                </Button>
-                <Button size="lg" variant="outline">
-                  <Share2 className="h-5 w-5" />
-                </Button>
-              </div>
-              
-              <Button size="lg" className="w-full" variant="secondary">
-                Buy Now - Fast Checkout
-              </Button>
+              {product.id === 9 ? (
+                // Shopify Buy Button for Chrome Hearts product
+                <>
+                  <div id='product-component-1756914133669'></div>
+                  <script 
+                    type="text/javascript"
+                    dangerouslySetInnerHTML={{
+                      __html: `
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else {
+      loadScript();
+    }
+  } else {
+    loadScript();
+  }
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: '2jxw06-70.myshopify.com',
+      storefrontAccessToken: 'e74939e8f38608461f2f49b8bc31f90f',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('product', {
+        id: '9844223770910',
+        node: document.getElementById('product-component-1756914133669'),
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: {
+  "product": {
+    "styles": {
+      "product": {
+        "@media (min-width: 601px)": {
+          "max-width": "calc(25% - 20px)",
+          "margin-left": "20px",
+          "margin-bottom": "50px"
+        }
+      },
+      "button": {
+        "font-family": "Arial, sans-serif",
+        "color": "#000000",
+        ":hover": {
+          "color": "#000000",
+          "background-color": "#65b3cc"
+        },
+        "background-color": "#70c7e3",
+        ":focus": {
+          "background-color": "#65b3cc"
+        }
+      }
+    },
+    "contents": {
+      "img": false,
+      "title": false,
+      "price": false
+    },
+    "text": {
+      "button": "Add to cart"
+    }
+  },
+  "productSet": {
+    "styles": {
+      "products": {
+        "@media (min-width: 601px)": {
+          "margin-left": "-20px"
+        }
+      }
+    }
+  },
+  "modalProduct": {
+    "contents": {
+      "img": false,
+      "imgWithCarousel": true,
+      "button": false,
+      "buttonWithQuantity": true
+    },
+    "styles": {
+      "product": {
+        "@media (min-width: 601px)": {
+          "max-width": "100%",
+          "margin-left": "0px",
+          "margin-bottom": "0px"
+        }
+      },
+      "button": {
+        "font-family": "Arial, sans-serif",
+        "color": "#000000",
+        ":hover": {
+          "color": "#000000",
+          "background-color": "#65b3cc"
+        },
+        "background-color": "#70c7e3",
+        ":focus": {
+          "background-color": "#65b3cc"
+        }
+      }
+    },
+    "text": {
+      "button": "Add to cart"
+    }
+  },
+  "option": {},
+  "cart": {
+    "styles": {
+      "button": {
+        "font-family": "Arial, sans-serif",
+        "color": "#000000",
+        ":hover": {
+          "color": "#000000",
+          "background-color": "#65b3cc"
+        },
+        "background-color": "#70c7e3",
+        ":focus": {
+          "background-color": "#65b3cc"
+        }
+      }
+    },
+    "text": {
+      "total": "Subtotal",
+      "button": "Checkout"
+    }
+  },
+  "toggle": {
+    "styles": {
+      "toggle": {
+        "font-family": "Arial, sans-serif",
+        "background-color": "#70c7e3",
+        ":hover": {
+          "background-color": "#65b3cc"
+        },
+        ":focus": {
+          "background-color": "#65b3cc"
+        }
+      },
+      "count": {
+        "color": "#000000",
+        ":hover": {
+          "color": "#000000"
+        }
+      },
+      "iconPath": {
+        "fill": "#000000"
+      }
+    }
+  }
+},
+      });
+    });
+  }
+})();
+                      `
+                    }}
+                  />
+                  <div className="flex space-x-4 mt-4">
+                    <Button 
+                      size="lg" 
+                      variant="outline"
+                      onClick={handleAddToWishlist}
+                    >
+                      <Heart className="h-5 w-5" />
+                    </Button>
+                    <Button size="lg" variant="outline">
+                      <Share2 className="h-5 w-5" />
+                    </Button>
+                  </div>
+                </>
+              ) : (
+                // Regular buttons for other products
+                <>
+                  <div className="flex space-x-4">
+                    <Button 
+                      size="lg" 
+                      className="flex-1 bg-primary hover:bg-primary/90"
+                      onClick={handleAddToCart}
+                    >
+                      <ShoppingBag className="h-5 w-5 mr-2" />
+                      Add to Cart
+                    </Button>
+                    <Button 
+                      size="lg" 
+                      variant="outline"
+                      onClick={handleAddToWishlist}
+                    >
+                      <Heart className="h-5 w-5" />
+                    </Button>
+                    <Button size="lg" variant="outline">
+                      <Share2 className="h-5 w-5" />
+                    </Button>
+                  </div>
+                  
+                  <Button size="lg" className="w-full" variant="secondary">
+                    Buy Now - Fast Checkout
+                  </Button>
+                </>
+              )}
             </div>
 
             {/* Trust Signals */}

@@ -1,0 +1,70 @@
+import { ShoppingBag, Search, User, Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+const Header = () => {
+  return (
+    <header className="bg-background border-b border-border">
+      <div className="container mx-auto px-4">
+        {/* Top bar */}
+        <div className="flex items-center justify-between py-2 text-sm text-muted-foreground">
+          <div className="hidden md:block">
+            Frete grátis em pedidos acima de R$ 500
+          </div>
+          <div className="flex items-center space-x-4">
+            <span>Contato: (11) 99999-9999</span>
+            <span>•</span>
+            <span>Suporte 24/7</span>
+          </div>
+        </div>
+
+        {/* Main header */}
+        <div className="flex items-center justify-between py-4">
+          {/* Logo */}
+          <div className="flex items-center">
+            <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              LUXE STORE
+            </h1>
+          </div>
+
+          {/* Navigation */}
+          <nav className="hidden lg:flex items-center space-x-8">
+            <a href="#" className="text-foreground hover:text-primary transition-colors">Homem</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors">Mulher</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors">Anéis</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors">Correntes</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors">Relógios</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors">Outlet</a>
+          </nav>
+
+          {/* Search */}
+          <div className="hidden md:flex items-center relative flex-1 max-w-md mx-8">
+            <Input 
+              placeholder="Buscar produtos..." 
+              className="pr-10 bg-muted border-border"
+            />
+            <Search className="absolute right-3 h-4 w-4 text-muted-foreground" />
+          </div>
+
+          {/* Actions */}
+          <div className="flex items-center space-x-4">
+            <Button variant="ghost" size="icon">
+              <User className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" size="icon" className="relative">
+              <ShoppingBag className="h-5 w-5" />
+              <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full text-xs h-5 w-5 flex items-center justify-center">
+                2
+              </span>
+            </Button>
+            <Button variant="ghost" size="icon" className="lg:hidden">
+              <Menu className="h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;

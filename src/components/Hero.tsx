@@ -25,7 +25,7 @@ const Hero = () => {
                 </p>
                 <Button 
                   size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-yellow group"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-blue group"
                 >
                   Explore Collection
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -42,7 +42,7 @@ const Hero = () => {
               
               <div className="relative z-20 p-8 text-center transform group-hover:scale-105 transition-transform duration-300">
                 <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-                  WOMEN'S
+                  2025
                   <span className="block text-primary">COLLECTION</span>
                 </h2>
                 <p className="text-muted-foreground mb-6 text-lg">
@@ -50,7 +50,7 @@ const Hero = () => {
                 </p>
                 <Button 
                   size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-yellow group"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-blue group"
                 >
                   Explore Collection
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

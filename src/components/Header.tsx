@@ -12,7 +12,7 @@ const Header = () => {
             Free shipping on orders over R$ 500
           </div>
           <div className="flex items-center space-x-4">
-            <span>Contact: (11) 99999-9999</span>
+            <span>Contact: +1 (437) 473-5348</span>
             <span>•</span>
             <span>24/7 Support</span>
           </div>
@@ -23,7 +23,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              LUXE STORE
+              HYPE COMPANY
             </h1>
           </div>
 

@@ -68,7 +68,7 @@ export default {
 				'gradient-dark': 'var(--gradient-dark)'
 			},
 			boxShadow: {
-				'yellow': 'var(--shadow-yellow)',
+				'blue': 'var(--shadow-blue)',
 				'glow': 'var(--shadow-glow)'
 			},
 			borderRadius: {

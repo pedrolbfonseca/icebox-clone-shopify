@@ -38,7 +38,7 @@ const Categories = () => {
           {categories.map((category, index) => (
             <div 
               key={index}
-              className="group cursor-pointer p-8 bg-card rounded-lg border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-yellow text-center"
+              className="group cursor-pointer p-8 bg-card rounded-lg border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-blue text-center"
             >
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 {category.icon}

@@ -28,7 +28,9 @@ const Header = () => {
               <img 
                 src="/lovable-uploads/ed7ff74f-77a0-4c15-b0a2-0a499014ca76.png" 
                 alt="Hype Company Logo" 
-                className="h-16 w-auto"
+                className="h-20 w-auto object-contain filter brightness-100 contrast-125"
+                loading="eager"
+                draggable={false}
               />
             </Link>
           </div>

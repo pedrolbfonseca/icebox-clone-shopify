@@ -1,0 +1,465 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="hero-section section-{{ section.id }}-padding">
+  <div class="container">
+    <div class="hero-content">
+      
+      {%- if section.settings.heading != blank -%}
+        <div class="hero-text text-center">
+          <h1 class="hero-title h1 gradient-text">
+            {{ section.settings.heading | escape }}
+          </h1>
+          
+          {%- if section.settings.subheading != blank -%}
+            <p class="hero-subtitle">
+              {{ section.settings.subheading | escape }}
+            </p>
+          {%- endif -%}
+          
+          {%- if section.settings.button_label != blank -%}
+            <div class="hero-button">
+              <a href="{{ section.settings.button_link | default: '#' }}" class="button button--large">
+                {{ section.settings.button_label | escape }}
+              </a>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="hero-collections grid grid--2-col-desktop">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'collection' -%}
+              <div class="hero-collection-card card" {{ block.shopify_attributes }}>
+                {%- if block.settings.collection_image != blank -%}
+                  <div class="hero-collection-image">
+                    {%- assign image_height = block.settings.collection_image.width | divided_by: block.settings.collection_image.aspect_ratio -%}
+                    {{ block.settings.collection_image | image_url: width: 800 | image_tag:
+                      loading: 'lazy',
+                      width: block.settings.collection_image.width,
+                      height: image_height,
+                      class: 'responsive-image',
+                      sizes: '(min-width: 990px) 50vw, 100vw',
+                      widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+                      alt: block.settings.collection.title | default: block.settings.heading
+                    }}
+                  </div>
+                {%- else -%}
+                  <div class="hero-collection-placeholder">
+                    <div class="placeholder-content">
+                      <span class="placeholder-icon">{{ block.settings.heading | slice: 0 }}</span>
+                    </div>
+                  </div>
+                {%- endif -%}
+                
+                <div class="hero-collection-content">
+                  {%- if block.settings.heading != blank -%}
+                    <h2 class="hero-collection-title h2">
+                      {{ block.settings.heading | escape }}
+                    </h2>
+                  {%- endif -%}
+                  
+                  {%- if block.settings.description != blank -%}
+                    <p class="hero-collection-description">
+                      {{ block.settings.description | escape }}
+                    </p>
+                  {%- endif -%}
+                  
+                  {%- if block.settings.button_label != blank -%}
+                    <a href="{{ block.settings.collection.url | default: block.settings.button_link | default: '#' }}" class="button">
+                      {{ block.settings.button_label | escape }}
+                      <svg class="icon icon-arrow" aria-hidden="true" focusable="false" viewBox="0 0 14 10">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="m8.537.808 4.58 4.58a.75.75 0 0 1 0 1.061l-4.58 4.58a.75.75 0 0 1-1.061-1.061L10.477 6.75H1a.75.75 0 0 1 0-1.5h9.477L7.476 2.249a.75.75 0 0 1 1.061-1.041Z" fill="currentColor"/>
+                      </svg>
+                    </a>
+                  {%- endif -%}
+                </div>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+      
+      {%- if section.blocks.size == 0 -%}
+        <div class="hero-collections grid grid--2-col-desktop">
+          <div class="hero-collection-card card">
+            <div class="hero-collection-placeholder">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">M</span>
+              </div>
+            </div>
+            <div class="hero-collection-content">
+              <h2 class="hero-collection-title h2">COLEÇÃO MASCULINA</h2>
+              <p class="hero-collection-description">Joias exclusivas para homens sofisticados</p>
+              <a href="#" class="button">
+                Explorar Coleção
+                <svg class="icon icon-arrow" aria-hidden="true" focusable="false" viewBox="0 0 14 10">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="m8.537.808 4.58 4.58a.75.75 0 0 1 0 1.061l-4.58 4.58a.75.75 0 0 1-1.061-1.061L10.477 6.75H1a.75.75 0 0 1 0-1.5h9.477L7.476 2.249a.75.75 0 0 1 1.061-1.041Z" fill="currentColor"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="hero-collection-card card">
+            <div class="hero-collection-placeholder">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">F</span>
+              </div>
+            </div>
+            <div class="hero-collection-content">
+              <h2 class="hero-collection-title h2">COLEÇÃO FEMININA</h2>
+              <p class="hero-collection-description">Elegância e beleza em cada detalhe</p>
+              <a href="#" class="button">
+                Explorar Coleção
+                <svg class="icon icon-arrow" aria-hidden="true" focusable="false" viewBox="0 0 14 10">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="m8.537.808 4.58 4.58a.75.75 0 0 1 0 1.061l-4.58 4.58a.75.75 0 0 1-1.061-1.061L10.477 6.75H1a.75.75 0 0 1 0-1.5h9.477L7.476 2.249a.75.75 0 0 1 1.061-1.041Z" fill="currentColor"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="hero-scroll-indicator">
+        <div class="scroll-indicator">
+          <div class="scroll-indicator-dot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .hero-section {
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--color-black), var(--color-gray-dark));
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-text {
+    margin-bottom: 4rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-gray);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-button {
+    margin-bottom: 3rem;
+  }
+
+  .hero-collections {
+    gap: 2rem;
+  }
+
+  .hero-collection-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  .hero-collection-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-primary);
+  }
+
+  .hero-collection-image,
+  .hero-collection-placeholder {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .hero-collection-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .hero-collection-card:hover .hero-collection-image img {
+    transform: scale(1.05);
+  }
+
+  .hero-collection-placeholder {
+    background: linear-gradient(135deg, var(--color-gray-dark), var(--color-black));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .placeholder-content {
+    text-align: center;
+  }
+
+  .placeholder-icon {
+    font-size: 4rem;
+    font-weight: var(--font-heading-weight);
+    color: var(--color-primary);
+    opacity: 0.5;
+  }
+
+  .hero-collection-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    color: var(--color-white);
+    text-align: center;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+
+  .hero-collection-card:hover .hero-collection-content {
+    transform: translateY(0);
+  }
+
+  .hero-collection-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 0.5rem;
+    color: var(--color-white);
+  }
+
+  .hero-collection-description {
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .hero-collection-content .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .hero-collection-content .icon-arrow {
+    width: 1rem;
+    height: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .hero-collection-content .button:hover .icon-arrow {
+    transform: translateX(0.25rem);
+  }
+
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .scroll-indicator {
+    width: 1.5rem;
+    height: 2.5rem;
+    border: 2px solid var(--color-primary);
+    border-radius: 1rem;
+    position: relative;
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-indicator-dot {
+    width: 0.25rem;
+    height: 0.75rem;
+    background-color: var(--color-primary);
+    border-radius: 0.125rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+
+  @keyframes scroll {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(0.75rem);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .hero-collections {
+      grid-template-columns: 1fr;
+    }
+    
+    .hero-collection-card {
+      aspect-ratio: 3/4;
+    }
+    
+    .hero-text {
+      margin-bottom: 2rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "LUXE STORE",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "Joias Premium e Exclusivas",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_image",
+          "label": "Collection Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Collection Title",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "default": "Collection description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Shop Now",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section",
+      "blocks": [
+        {
+          "type": "collection",
+          "settings": {
+            "heading": "COLEÇÃO MASCULINA",
+            "description": "Joias exclusivas para homens sofisticados",
+            "button_label": "Explorar Coleção"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "heading": "COLEÇÃO FEMININA", 
+            "description": "Elegância e beleza em cada detalhe",
+            "button_label": "Explorar Coleção"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

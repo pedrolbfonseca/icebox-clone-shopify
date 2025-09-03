@@ -11,7 +11,7 @@ const Footer = () => {
             <img 
               src="/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png" 
               alt="Hype Company Logo" 
-              className="h-12 w-auto mb-4"
+              className="h-20 w-auto mb-4"
             />
             <p className="text-muted-foreground mb-4">
               Your premium jewelry store with the finest pieces in the market.

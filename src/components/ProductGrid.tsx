@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ShoppingBag, Heart, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCart } from "@/contexts/CartContext";
-import { useWishlist } from "@/contexts/WishlistContext";
+import { useWishlist } from "@/hooks/useWishlist";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 
@@ -60,7 +60,7 @@ const ProductGrid = () => {
     });
   };
 
-  const handleAddToWishlist = async (product: any, e: React.MouseEvent) => {
+  const handleWishlistToggle = async (product: any, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     
@@ -72,14 +72,11 @@ const ProductGrid = () => {
     const productId = product.id.toString();
     if (isInWishlist(productId)) {
       await removeFromWishlist(productId);
-      toast.success("Removido da lista de desejos!");
     } else {
       await addToWishlist(productId);
-      toast.success("Adicionado à lista de desejos!", {
-        description: `${product.name} foi salvo na sua lista de desejos.`,
-      });
     }
   };
+
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
@@ -99,19 +96,17 @@ const ProductGrid = () => {
               <Card className="group cursor-pointer overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300">
                 <div className="relative overflow-hidden">
                   <div className="aspect-square bg-muted flex items-center justify-center relative">
-                    {(product.id === 9 || product.id === 10) ? (
-                      <img 
-                        src={product.image} 
-                        alt={product.name}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const fallback = e.currentTarget.parentElement?.querySelector('.fallback-placeholder') as HTMLElement;
-                          if (fallback) fallback.style.display = 'flex';
-                        }}
-                      />
-                    ) : null}
-                    <div className={`${(product.id === 9 || product.id === 10) ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 items-center justify-center`}>
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        const fallback = e.currentTarget.parentElement?.querySelector('.fallback-placeholder') as HTMLElement;
+                        if (fallback) fallback.style.display = 'flex';
+                      }}
+                    />
+                    <div className="hidden fallback-placeholder absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 items-center justify-center">
                       <span className="text-4xl font-bold text-primary/50">
                         {product.category.charAt(0)}
                       </span>
@@ -132,9 +127,10 @@ const ProductGrid = () => {
                       <Button 
                         size="icon" 
                         variant="secondary"
-                        onClick={(e) => handleAddToWishlist(product, e)}
+                        onClick={(e) => handleWishlistToggle(product, e)}
+                        className={user && isInWishlist(product.id.toString()) ? "bg-red-500 hover:bg-red-600" : ""}
                       >
-                        <Heart className={`h-4 w-4 ${user && isInWishlist(product.id.toString()) ? 'fill-red-500 text-red-500' : ''}`} />
+                        <Heart className={`h-4 w-4 ${user && isInWishlist(product.id.toString()) ? 'fill-white text-white' : ''}`} />
                       </Button>
                     </div>
                   </div>

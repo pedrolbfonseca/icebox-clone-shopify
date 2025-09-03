@@ -11,11 +11,11 @@ const Header = () => {
   const { user, signOut } = useAuth();
 
   const handleSignOut = async () => {
-    const { error } = await signOut();
-    if (error) {
-      toast.error('Erro ao sair');
-    } else {
+    try {
+      await signOut();
       toast.success('Logout realizado com sucesso!');
+    } catch (error) {
+      toast.error('Erro ao sair');
     }
   };
 

@@ -205,6 +205,35 @@ const products = [
       "Shipping": "4-7 Business Days - Discreet & Fast",
       "Warranty": "HypeCo Guarantee Included"
     }
+  },
+  {
+    id: 10,
+    name: "Infinity Bracelet Four Clover Micro Paved 5A+",
+    price: "$97",
+    originalPrice: null,
+    image: "/src/assets/infinity-bracelet-1.png",
+    images: [
+      "/src/assets/infinity-bracelet-1.png",
+      "/src/assets/infinity-bracelet-2.png",
+      "/src/assets/infinity-bracelet-3.png",
+      "/src/assets/infinity-bracelet-4.png",
+      "/src/assets/infinity-bracelet-5.png"
+    ],
+    category: "Bracelets",
+    description: "Exquisite infinity bracelet featuring four-clover design with micro-paved 5A+ grade cubic zirconia. Crafted with premium materials and precision engineering for exceptional brilliance and lasting elegance. This luxury piece combines timeless symbolism with contemporary craftsmanship, making it perfect for special occasions or everyday glamour.",
+    features: ["5A+ Grade CZ Stones", "Micro Paved Setting", "Adjustable Size 6-8 inches", "Premium Gift Box", "Tarnish Resistant", "Lead & Nickel Free"],
+    rating: 4.8,
+    reviews: 142,
+    sizes: ["One Size (Adjustable)"],
+    specifications: {
+      "Material": "Premium Brass with Rhodium Plating",
+      "Stone Quality": "5A+ Grade Cubic Zirconia",
+      "Length": "6-8 inches (Adjustable Chain)",
+      "Width": "8mm",
+      "Clasp": "Lobster Claw with Extension Chain",
+      "Shipping": "5-10 Business Days - Secure Packaging",
+      "Care": "Store in Jewelry Box, Clean with Soft Cloth"
+    }
   }
 ];
 
@@ -259,7 +288,8 @@ const Product = () => {
     console.log('Product loaded:', { 
       productId: product?.id, 
       isProduct9: product?.id === 9,
-      elementExists: !!document.getElementById('product-component-1756914985987')
+      isProduct10: product?.id === 10,
+      elementExists: !!document.getElementById('product-component-1756914985987') || !!document.getElementById('product-component-1756918892033')
     });
 
     if (product?.id === 9) {
@@ -270,6 +300,16 @@ const Product = () => {
         
         if (element) {
           loadShopifyWidget();
+        }
+      }, 100);
+    } else if (product?.id === 10) {
+      // Wait for element to be rendered
+      setTimeout(() => {
+        const element = document.getElementById('product-component-1756918892033');
+        console.log('Widget element found for product 10:', !!element);
+        
+        if (element) {
+          loadShopifyWidget10();
         }
       }, 100);
     }
@@ -399,6 +439,159 @@ const Product = () => {
     }
   };
 
+  const loadShopifyWidget10 = () => {
+    console.log('Loading Shopify widget for product 10...');
+    
+    const script = document.createElement('script');
+    script.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+    script.async = true;
+    script.onload = () => {
+      console.log('Shopify script loaded for product 10');
+      initShopifyWidget10();
+    };
+    document.head.appendChild(script);
+  };
+
+  const initShopifyWidget10 = () => {
+    if (window.ShopifyBuy && window.ShopifyBuy.UI) {
+      console.log('Initializing Shopify widget for product 10...');
+      
+      const client = window.ShopifyBuy.buildClient({
+        domain: '2jxw06-70.myshopify.com',
+        storefrontAccessToken: 'e74939e8f38608461f2f49b8bc31f90f',
+      });
+
+      window.ShopifyBuy.UI.onReady(client).then((ui) => {
+        console.log('Creating Shopify component for product 10...');
+        
+        ui.createComponent('product', {
+          id: '9844250050846',
+          node: document.getElementById('product-component-1756918892033'),
+          moneyFormat: '%24%7B%7Bamount%7D%7D',
+          options: {
+            product: {
+              styles: {
+                product: {
+                  "@media (min-width: 601px)": {
+                    "max-width": "calc(25% - 20px)",
+                    "margin-left": "20px",
+                    "margin-bottom": "50px"
+                  }
+                },
+                button: {
+                  "font-family": "Arial, sans-serif",
+                  "color": "#000000",
+                  ":hover": {
+                    "color": "#000000",
+                    "background-color": "#65b3cc"
+                  },
+                  "background-color": "#70c7e3",
+                  ":focus": {
+                    "background-color": "#65b3cc"
+                  }
+                }
+              },
+              contents: {
+                img: false,
+                title: false,
+                price: false
+              },
+              text: {
+                button: "Add to cart"
+              }
+            },
+            productSet: {
+              styles: {
+                products: {
+                  "@media (min-width: 601px)": {
+                    "margin-left": "-20px"
+                  }
+                }
+              }
+            },
+            modalProduct: {
+              contents: {
+                img: false,
+                imgWithCarousel: true,
+                button: false,
+                buttonWithQuantity: true
+              },
+              styles: {
+                product: {
+                  "@media (min-width: 601px)": {
+                    "max-width": "100%",
+                    "margin-left": "0px",
+                    "margin-bottom": "0px"
+                  }
+                },
+                button: {
+                  "font-family": "Arial, sans-serif",
+                  "color": "#000000",
+                  ":hover": {
+                    "color": "#000000",
+                    "background-color": "#65b3cc"
+                  },
+                  "background-color": "#70c7e3",
+                  ":focus": {
+                    "background-color": "#65b3cc"
+                  }
+                }
+              },
+              text: {
+                button: "Add to cart"
+              }
+            },
+            option: {},
+            cart: {
+              styles: {
+                button: {
+                  "font-family": "Arial, sans-serif",
+                  "color": "#000000",
+                  ":hover": {
+                    "color": "#000000",
+                    "background-color": "#65b3cc"
+                  },
+                  "background-color": "#70c7e3",
+                  ":focus": {
+                    "background-color": "#65b3cc"
+                  }
+                }
+              },
+              text: {
+                total: "Subtotal",
+                button: "Checkout"
+              },
+              popup: false
+            },
+            toggle: {
+              styles: {
+                toggle: {
+                  "font-family": "Arial, sans-serif",
+                  "background-color": "#70c7e3",
+                  ":hover": {
+                    "background-color": "#65b3cc"
+                  },
+                  ":focus": {
+                    "background-color": "#65b3cc"
+                  }
+                },
+                count: {
+                  "color": "#000000",
+                  ":hover": {
+                    "color": "#000000"
+                  }
+                },
+                iconPath: {
+                  "fill": "#000000"
+                }
+              }
+            }
+          }
+        });
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -415,7 +608,7 @@ const Product = () => {
           {/* Product Image */}
           <div className="space-y-4">
             <Card className="aspect-square bg-muted flex items-center justify-center overflow-hidden">
-              {product.id === 9 && product.images ? (
+              {(product.id === 9 || product.id === 10) && product.images ? (
                 <img 
                   src={product.images[selectedImageIndex]} 
                   alt={product.name}
@@ -427,7 +620,7 @@ const Product = () => {
                   }}
                 />
               ) : null}
-              <div className={`${product.id === 9 ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} w-full h-full items-center justify-center`}>
+              <div className={`${(product.id === 9 || product.id === 10) ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} w-full h-full items-center justify-center`}>
                 <span className="text-8xl font-bold text-primary/30">
                   {product.category.charAt(0)}
                 </span>
@@ -435,7 +628,7 @@ const Product = () => {
             </Card>
             
             {/* Thumbnail Images */}
-            {product.id === 9 && product.images && (
+            {(product.id === 9 || product.id === 10) && product.images && (
               <div className="grid grid-cols-3 gap-2">
                 {product.images.map((image, index) => (
                   <Card 
@@ -532,7 +725,7 @@ const Product = () => {
               </div>
             )}
 
-            {/* Quantity and Add to Cart for Chrome Hearts */}
+            {/* Quantity and Add to Cart for Shopify Products */}
             {product.id === 9 ? (
               <div className="space-y-4">
                 <div>
@@ -559,6 +752,32 @@ const Product = () => {
                   <div id='product-component-1756914985987' className="w-full"></div>
                 </div>
               </div>
+            ) : product.id === 10 ? (
+              <div className="space-y-4">
+                <div>
+                  <h3 className="font-semibold text-foreground mb-3">Quantity</h3>
+                  <div className="flex items-center space-x-3">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    >
+                      -
+                    </Button>
+                    <span className="text-lg font-semibold px-4">{quantity}</span>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => setQuantity(quantity + 1)}
+                    >
+                      +
+                    </Button>
+                  </div>
+                </div>
+                <div className="w-full">
+                  <div id='product-component-1756918892033' className="w-full"></div>
+                </div>
+              </div>
             ) : (
               <div>
                 <h3 className="font-semibold text-foreground mb-3">Quantity</h3>
@@ -582,8 +801,8 @@ const Product = () => {
               </div>
             )}
 
-            {/* Action Buttons - Only for non-Chrome Hearts products */}
-            {product.id !== 9 && (
+            {/* Action Buttons - Only for non-Shopify products */}
+            {product.id !== 9 && product.id !== 10 && (
               <div className="space-y-4">
                 <div className="flex space-x-4">
                   <Button 
@@ -612,8 +831,8 @@ const Product = () => {
               </div>
             )}
 
-            {/* Wishlist and Share for Chrome Hearts */}
-            {product.id === 9 && (
+            {/* Wishlist and Share for Shopify Products */}
+            {(product.id === 9 || product.id === 10) && (
               <div className="flex space-x-4">
                 <Button 
                   size="lg" 

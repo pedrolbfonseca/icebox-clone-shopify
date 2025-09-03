@@ -118,6 +118,25 @@ const products = [
     features: ["14K Gold Plated", "Cross Link Design", "HypeCo Guarantee", "Fast Shipping 4-7 Days"],
     rating: 4.9,
     reviews: 187
+  },
+  {
+    id: 10,
+    name: "Infinity Bracelet Four Clover Micro Paved 5A+",
+    price: "$97",
+    originalPrice: null,
+    image: "/src/assets/infinity-bracelet-1.png",
+    images: [
+      "/src/assets/infinity-bracelet-1.png",
+      "/src/assets/infinity-bracelet-2.png",
+      "/src/assets/infinity-bracelet-3.png",
+      "/src/assets/infinity-bracelet-4.png",
+      "/src/assets/infinity-bracelet-5.png"
+    ],
+    category: "Bracelets",
+    description: "Exquisite infinity bracelet featuring four-clover design with micro-paved 5A+ grade cubic zirconia. Crafted with premium materials and precision engineering for exceptional brilliance and lasting elegance. Perfect luxury accessory for special occasions.",
+    features: ["5A+ Grade CZ Stones", "Micro Paved Setting", "Adjustable Size", "Premium Gift Box"],
+    rating: 4.8,
+    reviews: 142
   }
 ];
 
@@ -159,7 +178,7 @@ const ProductGrid = () => {
               <Card className="group cursor-pointer overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300">
                 <div className="relative overflow-hidden">
                   <div className="aspect-square bg-muted flex items-center justify-center relative">
-                    {product.id === 9 ? (
+                    {(product.id === 9 || product.id === 10) ? (
                       <img 
                         src={product.image} 
                         alt={product.name}
@@ -171,7 +190,7 @@ const ProductGrid = () => {
                         }}
                       />
                     ) : null}
-                    <div className={`${product.id === 9 ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 items-center justify-center`}>
+                    <div className={`${(product.id === 9 || product.id === 10) ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 items-center justify-center`}>
                       <span className="text-4xl font-bold text-primary/50">
                         {product.category.charAt(0)}
                       </span>

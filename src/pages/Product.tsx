@@ -309,13 +309,13 @@ const Product = () => {
               styles: {
                 product: {
                   'max-width': '100%',
-                  'margin-left': '0px',
-                  'margin-bottom': '0px',
+                  'margin': '0',
+                  'padding': '0',
                   'width': '100%',
                   '@media (min-width: 601px)': {
                     'max-width': '100%',
-                    'margin-left': '0px',
-                    'margin-bottom': '0px',
+                    'margin': '0',
+                    'padding': '0',
                     'width': '100%'
                   }
                 },
@@ -323,6 +323,10 @@ const Product = () => {
                   'font-family': 'Arial, sans-serif',
                   color: '#000000',
                   'font-weight': 'bold',
+                  'margin': '0',
+                  'padding': '8px 32px',
+                  'width': '100%',
+                  'text-align': 'center',
                   ':hover': {
                     color: '#000000',
                     'background-color': '#65b3cc'
@@ -551,8 +555,8 @@ const Product = () => {
                     </Button>
                   </div>
                 </div>
-                <div>
-                  <div id='product-component-1756914985987'></div>
+                <div className="w-full">
+                  <div id='product-component-1756914985987' className="w-full"></div>
                 </div>
               </div>
             ) : (

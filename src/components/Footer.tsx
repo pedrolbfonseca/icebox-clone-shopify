@@ -8,9 +8,11 @@ const Footer = () => {
           
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
-              HYPE COMPANY
-            </h3>
+            <img 
+              src="/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png" 
+              alt="Hype Company Logo" 
+              className="h-12 w-auto mb-4"
+            />
             <p className="text-muted-foreground mb-4">
               Your premium jewelry store with the finest pieces in the market.
             </p>

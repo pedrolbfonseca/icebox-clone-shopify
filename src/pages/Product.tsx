@@ -175,7 +175,12 @@ const products = [
     name: "Chrome Hearts Inspired 14K Gold Plated Cross Link Bracelet",
     price: "CAD$ 63",
     originalPrice: null,
-    image: "placeholder",
+    image: "/lovable-uploads/5a4ea2ea-8a67-498a-b4cb-cf901f3c34b5.png",
+    images: [
+      "/lovable-uploads/5a4ea2ea-8a67-498a-b4cb-cf901f3c34b5.png",
+      "/lovable-uploads/ef2d481a-5bf3-4de6-a379-4b6e6c562ed2.png",
+      "/lovable-uploads/655181b7-fe89-4177-bfbb-d5d8e49905e9.png"
+    ],
     category: "Bracelets",
     description: "Luxury Chrome Hearts inspired cross link bracelet featuring iconic gothic cross motifs in premium 14K gold plating. This statement piece combines edgy streetwear aesthetics with refined craftsmanship, making it perfect for both casual and elevated looks. Each cross link is meticulously detailed with intricate patterns that catch and reflect light beautifully. The secure clasp mechanism ensures comfortable wear while maintaining the bracelet's striking visual impact. Designed for those who appreciate bold, distinctive jewelry that makes a statement.",
     features: ["14K Gold Plated Finish", "Iconic Cross Link Design", "Secure Clasp System", "HypeCo Lifetime Guarantee"],
@@ -198,6 +203,7 @@ const Product = () => {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("7");
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   
   const product = products.find(p => p.id === parseInt(id || "0"));
 
@@ -243,11 +249,46 @@ const Product = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Image */}
           <div className="space-y-4">
-            <Card className="aspect-square bg-muted flex items-center justify-center">
-              <span className="text-8xl font-bold text-primary/30">
-                {product.category.charAt(0)}
-              </span>
+            <Card className="aspect-square bg-muted flex items-center justify-center overflow-hidden">
+              {product.id === 9 && product.images ? (
+                <img 
+                  src={product.images[selectedImageIndex]} 
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const fallback = e.currentTarget.parentElement?.querySelector('.fallback-placeholder') as HTMLElement;
+                    if (fallback) fallback.style.display = 'flex';
+                  }}
+                />
+              ) : null}
+              <div className={`${product.id === 9 ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} w-full h-full items-center justify-center`}>
+                <span className="text-8xl font-bold text-primary/30">
+                  {product.category.charAt(0)}
+                </span>
+              </div>
             </Card>
+            
+            {/* Thumbnail Images */}
+            {product.id === 9 && product.images && (
+              <div className="grid grid-cols-3 gap-2">
+                {product.images.map((image, index) => (
+                  <Card 
+                    key={index}
+                    className={`aspect-square cursor-pointer overflow-hidden border-2 transition-all ${
+                      selectedImageIndex === index ? 'border-primary' : 'border-border hover:border-primary/50'
+                    }`}
+                    onClick={() => setSelectedImageIndex(index)}
+                  >
+                    <img 
+                      src={image} 
+                      alt={`${product.name} view ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </Card>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Product Info */}

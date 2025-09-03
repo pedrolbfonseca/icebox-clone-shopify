@@ -109,7 +109,12 @@ const products = [
     name: "Chrome Hearts Inspired 14K Gold Plated Cross Link Bracelet",
     price: "CAD$ 63",
     originalPrice: null,
-    image: "placeholder",
+    image: "/lovable-uploads/5a4ea2ea-8a67-498a-b4cb-cf901f3c34b5.png",
+    images: [
+      "/lovable-uploads/5a4ea2ea-8a67-498a-b4cb-cf901f3c34b5.png",
+      "/lovable-uploads/ef2d481a-5bf3-4de6-a379-4b6e6c562ed2.png",
+      "/lovable-uploads/655181b7-fe89-4177-bfbb-d5d8e49905e9.png"
+    ],
     category: "Bracelets",
     description: "Luxury Chrome Hearts inspired cross link bracelet crafted with precision and style.",
     features: ["14K Gold Plated", "Cross Link Design", "HypeCo Guarantee", "Fast Shipping 4-7 Days"],
@@ -240,10 +245,23 @@ const Category = () => {
                 <Card className="group cursor-pointer overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300">
                   <div className="relative overflow-hidden">
                     <div className="aspect-square bg-muted flex items-center justify-center relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10"></div>
-                      <span className="text-4xl font-bold text-primary/50">
-                        {product.category.charAt(0)}
-                      </span>
+                      {product.id === 9 ? (
+                        <img 
+                          src={product.image} 
+                          alt={product.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.parentElement?.querySelector('.fallback-placeholder') as HTMLElement;
+                            if (fallback) fallback.style.display = 'flex';
+                          }}
+                        />
+                      ) : null}
+                      <div className={`${product.id === 9 ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 items-center justify-center`}>
+                        <span className="text-4xl font-bold text-primary/50">
+                          {product.category.charAt(0)}
+                        </span>
+                      </div>
                     </div>
                     
                     {/* Hover overlay */}

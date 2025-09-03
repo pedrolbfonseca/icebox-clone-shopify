@@ -12,7 +12,6 @@ const Hero = () => {
           
           {/* Men's Section */}
           <Link to="/category/men" className="relative group cursor-pointer overflow-hidden rounded-lg">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
             <div className="aspect-[4/5] relative overflow-hidden bg-slate-800">
               <img 
                 src="/lovable-uploads/c764d453-08a8-4cf0-8fa2-0113eea60e54.png"
@@ -25,23 +24,27 @@ const Hero = () => {
                   e.currentTarget.style.display = 'none';
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-black/30 to-black/60"></div>
+              {/* Overlay for better text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 z-10"></div>
               
-              <div className="relative z-20 p-8 text-center transform group-hover:scale-105 transition-transform duration-300">
-                <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-                  MEN'S
-                  <span className="block text-primary">COLLECTION</span>
-                </h2>
-                <p className="text-muted-foreground mb-6 text-lg">
-                  Exclusive jewelry for sophisticated men
-                </p>
-                <Button 
-                  size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-blue group"
-                >
-                  Explore Collection
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
+              {/* Text Content */}
+              <div className="absolute inset-0 flex items-end justify-center z-20">
+                <div className="p-8 text-center transform group-hover:scale-105 transition-transform duration-300">
+                  <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+                    MEN'S
+                    <span className="block text-primary">COLLECTION</span>
+                  </h2>
+                  <p className="text-white/90 mb-6 text-lg drop-shadow-lg">
+                    Exclusive jewelry for sophisticated men
+                  </p>
+                  <Button 
+                    size="lg" 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg drop-shadow-lg"
+                  >
+                    Explore Collection
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
               </div>
             </div>
           </Link>

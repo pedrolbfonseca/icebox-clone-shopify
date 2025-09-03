@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin, Clock } from "lucide-react";
+import LogoProcessor from "./LogoProcessor";
 
 const Footer = () => {
   return (
@@ -8,9 +9,9 @@ const Footer = () => {
           
           {/* Brand */}
           <div>
-            <img 
-              src="/lovable-uploads/ed7ff74f-77a0-4c15-b0a2-0a499014ca76.png" 
-              alt="Hype Company Logo" 
+            <LogoProcessor
+              logoUrl="/lovable-uploads/b4f1e581-2bf5-4822-8e4c-c3cba8e3e968.png"
+              alt="Hype Company Logo"
               className="h-24 w-auto object-contain filter brightness-100 contrast-125"
               loading="eager"
               draggable={false}

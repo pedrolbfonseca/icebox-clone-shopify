@@ -317,6 +317,7 @@ const Product = () => {
                 button: {
                   'font-family': 'Arial, sans-serif',
                   color: '#000000',
+                  'font-weight': 'bold',
                   ':hover': {
                     color: '#000000',
                     'background-color': '#65b3cc'
@@ -334,6 +335,9 @@ const Product = () => {
               },
               text: {
                 button: 'Add to cart'
+              },
+              buttonStyles: {
+                'font-weight': 'bold'
               }
             },
             cart: {
@@ -521,7 +525,7 @@ const Product = () => {
 
             {/* Quantity and Add to Cart for Chrome Hearts */}
             {product.id === 9 ? (
-              <div className="grid grid-cols-2 gap-6 items-end">
+              <div className="space-y-4">
                 <div>
                   <h3 className="font-semibold text-foreground mb-3">Quantity</h3>
                   <div className="flex items-center space-x-3">
@@ -543,7 +547,6 @@ const Product = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-3">Purchase</h3>
                   <div id='product-component-1756914985987'></div>
                 </div>
               </div>

@@ -103,7 +103,7 @@ const products = [
   },
   {
     id: 5,
-    name: "Tennis Bracelet",
+    name: "Diamond Tennis Bracelet",
     price: "CAD$ 10,660",
     originalPrice: "CAD$ 12,740",
     image: "placeholder",
@@ -182,7 +182,7 @@ const products = [
   },
   {
     id: 9,
-    name: "Chrome Hearts Inspired Cross Link Bracelet",
+    name: "Chrome Hearts Cross Bracelet",
     price: "CAD$ 63",
     originalPrice: null,
     image: "/lovable-uploads/5a4ea2ea-8a67-498a-b4cb-cf901f3c34b5.png",
@@ -208,7 +208,7 @@ const products = [
   },
   {
     id: 10,
-    name: "Infinity Bracelet Four Clover Micro Paved 5A+",
+    name: "Infinity Four Clover Bracelet",
     price: "$97",
     originalPrice: null,
     image: "/lovable-uploads/c35a4ea4-7563-4030-9a2e-6d6bac497874.png",

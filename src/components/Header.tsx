@@ -1,11 +1,24 @@
-import { ShoppingBag, Search, User } from "lucide-react";
+import { ShoppingBag, Search, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
 import CartDropdown from "./CartDropdown";
 import LogoProcessor from "./LogoProcessor";
 
 const Header = () => {
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    const { error } = await signOut();
+    if (error) {
+      toast.error('Erro ao sair');
+    } else {
+      toast.success('Logout realizado com sucesso!');
+    }
+  };
+
   return (
     <header className="bg-background border-b border-border">
       <div className="container mx-auto px-4">
@@ -58,9 +71,22 @@ const Header = () => {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon">
-              <User className="h-5 w-5" />
-            </Button>
+            {user ? (
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-muted-foreground hidden md:inline">
+                  Olá, {user.email?.split('@')[0]}
+                </span>
+                <Button variant="ghost" size="icon" onClick={handleSignOut}>
+                  <LogOut className="h-5 w-5" />
+                </Button>
+              </div>
+            ) : (
+              <Link to="/auth">
+                <Button variant="ghost" size="icon">
+                  <User className="h-5 w-5" />
+                </Button>
+              </Link>
+            )}
             <CartDropdown />
           </div>
         </div>

@@ -3,105 +3,11 @@ import { Button } from "@/components/ui/button";
 import { ShoppingBag, Heart, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCart } from "@/contexts/CartContext";
+import { useWishlist } from "@/contexts/WishlistContext";
+import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 
 const products = [
-  {
-    id: 1,
-    name: "18k Gold Ring",
-    price: "CAD$ 3,250.00",
-    originalPrice: "CAD$ 4,160.00",
-    image: "placeholder",
-    category: "Rings",
-    description: "Exquisite 18k gold ring with premium craftsmanship and timeless design.",
-    features: ["18k Gold", "Premium Quality", "Lifetime Warranty", "Gift Box Included"],
-    rating: 4.8,
-    reviews: 156
-  },
-  {
-    id: 2,
-    name: "Premium Cuban Chain",
-    price: "CAD$ 6,240.00",
-    originalPrice: null,
-    image: "placeholder", 
-    category: "Chains",
-    description: "Heavy-duty premium Cuban chain made from the finest materials.",
-    features: ["Premium Material", "Water Resistant", "Adjustable Length", "Certificate Included"],
-    rating: 4.9,
-    reviews: 203
-  },
-  {
-    id: 3,
-    name: "Diamond Watch",
-    price: "CAD$ 15,600.00",
-    originalPrice: "CAD$ 19,500.00",
-    image: "placeholder",
-    category: "Watches",
-    description: "Luxury diamond-encrusted timepiece with Swiss movement.",
-    features: ["Swiss Movement", "Real Diamonds", "Water Proof", "2 Year Warranty"],
-    rating: 5.0,
-    reviews: 89
-  },
-  {
-    id: 4,
-    name: "Emerald Earrings",
-    price: "CAD$ 8,450.00",
-    originalPrice: null,
-    image: "placeholder",
-    category: "Earrings",
-    description: "Stunning emerald earrings with brilliant cut stones.",
-    features: ["Natural Emerald", "Sterling Silver", "Hypoallergenic", "Elegant Design"],
-    rating: 4.7,
-    reviews: 124
-  },
-  {
-    id: 5,
-    name: "Diamond Tennis Bracelet",
-    price: "CAD$ 10,660.00",
-    originalPrice: "CAD$ 12,740.00",
-    image: "placeholder",
-    category: "Bracelets",
-    description: "Classic tennis bracelet with brilliant diamonds.",
-    features: ["Diamond Stones", "Flexible Design", "Secure Clasp", "Luxury Box"],
-    rating: 4.8,
-    reviews: 178
-  },
-  {
-    id: 6,
-    name: "Pearl Necklace",
-    price: "CAD$ 4,940.00",
-    originalPrice: null,
-    image: "placeholder",
-    category: "Necklaces",
-    description: "Elegant freshwater pearl necklace with gold clasp.",
-    features: ["Freshwater Pearls", "Gold Clasp", "Multiple Lengths", "Velvet Case"],
-    rating: 4.6,
-    reviews: 97
-  },
-  {
-    id: 7,
-    name: "Sapphire Ring",
-    price: "CAD$ 7,800.00",
-    originalPrice: "CAD$ 9,100.00",
-    image: "placeholder",
-    category: "Rings",
-    description: "Royal blue sapphire ring with white gold setting.",
-    features: ["Natural Sapphire", "White Gold", "Expert Cut", "Certificate"],
-    rating: 4.9,
-    reviews: 145
-  },
-  {
-    id: 8,
-    name: "Gold Pendant",
-    price: "CAD$ 3,900.00",
-    originalPrice: null,
-    image: "placeholder",
-    category: "Necklaces",
-    description: "Minimalist gold pendant perfect for everyday wear.",
-    features: ["14k Gold", "Minimalist Design", "Durable Chain", "Gift Ready"],
-    rating: 4.5,
-    reviews: 76
-  },
   {
     id: 9,
     name: "Chrome Hearts Cross Bracelet",
@@ -142,6 +48,8 @@ const products = [
 
 const ProductGrid = () => {
   const { addToCart } = useCart();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { user } = useAuth();
 
   const handleAddToCart = (product: any, e: React.MouseEvent) => {
     e.preventDefault();
@@ -152,12 +60,25 @@ const ProductGrid = () => {
     });
   };
 
-  const handleAddToWishlist = (product: any, e: React.MouseEvent) => {
+  const handleAddToWishlist = async (product: any, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    toast.success("Adicionado à lista de desejos!", {
-      description: `${product.name} foi salvo na sua lista de desejos.`,
-    });
+    
+    if (!user) {
+      toast.error("Faça login para usar a lista de desejos");
+      return;
+    }
+
+    const productId = product.id.toString();
+    if (isInWishlist(productId)) {
+      await removeFromWishlist(productId);
+      toast.success("Removido da lista de desejos!");
+    } else {
+      await addToWishlist(productId);
+      toast.success("Adicionado à lista de desejos!", {
+        description: `${product.name} foi salvo na sua lista de desejos.`,
+      });
+    }
   };
   return (
     <section className="py-16 bg-background">
@@ -213,7 +134,7 @@ const ProductGrid = () => {
                         variant="secondary"
                         onClick={(e) => handleAddToWishlist(product, e)}
                       >
-                        <Heart className="h-4 w-4" />
+                        <Heart className={`h-4 w-4 ${user && isInWishlist(product.id.toString()) ? 'fill-red-500 text-red-500' : ''}`} />
                       </Button>
                     </div>
                   </div>

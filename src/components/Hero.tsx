@@ -13,8 +13,13 @@ const Hero = () => {
           {/* Men's Section */}
           <Link to="/category/men" className="relative group cursor-pointer overflow-hidden rounded-lg">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
-            <div className="aspect-[4/5] bg-muted flex items-end justify-center relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-muted/50 to-muted opacity-20"></div>
+            <div className="aspect-[4/5] relative overflow-hidden">
+              <img 
+                src="/lovable-uploads/c764d453-08a8-4cf0-8fa2-0113eea60e54.png"
+                alt="Men's Collection - Premium Chains and Pendants"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-black/30 to-black/60"></div>
               
               <div className="relative z-20 p-8 text-center transform group-hover:scale-105 transition-transform duration-300">
                 <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">

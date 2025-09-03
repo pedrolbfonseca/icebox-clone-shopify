@@ -39,10 +39,10 @@ const LogoProcessor = ({ logoUrl, alt, className, loading = "eager", draggable =
       }
     };
 
-    // Only process if we detect the logo has a background to remove
-    if (logoUrl.includes('b4f1e581-2bf5-4822-8e4c-c3cba8e3e968') || logoUrl.includes('00dc269d-705c-478b-8102-d7baf43834e0')) {
-      processLogo();
-    }
+    // Temporariamente desabilitado para evitar erros WebGPU
+    // if (logoUrl.includes('b4f1e581-2bf5-4822-8e4c-c3cba8e3e968') || logoUrl.includes('00dc269d-705c-478b-8102-d7baf43834e0')) {
+    //   processLogo();
+    // }
   }, [logoUrl]);
 
   return (

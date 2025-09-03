@@ -13,11 +13,17 @@ const Hero = () => {
           {/* Men's Section */}
           <Link to="/category/men" className="relative group cursor-pointer overflow-hidden rounded-lg">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
-            <div className="aspect-[4/5] relative overflow-hidden">
+            <div className="aspect-[4/5] relative overflow-hidden bg-slate-800">
               <img 
                 src="/lovable-uploads/c764d453-08a8-4cf0-8fa2-0113eea60e54.png"
                 alt="Men's Collection - Premium Chains and Pendants"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="eager"
+                onLoad={() => console.log('Mens collection image loaded successfully')}
+                onError={(e) => {
+                  console.error('Error loading mens collection image:', e);
+                  e.currentTarget.style.display = 'none';
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-br from-black/30 to-black/60"></div>
               

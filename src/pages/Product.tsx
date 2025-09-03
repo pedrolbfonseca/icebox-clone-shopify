@@ -8,6 +8,7 @@ import { Star, ShoppingBag, Heart, Share2, ArrowLeft, Truck, Shield, RefreshCw, 
 import { toast } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useCart } from "@/contexts/CartContext";
 
 const products = [
   {
@@ -24,7 +25,6 @@ const products = [
     inStock: true,
     specifications: {
       "Material": "18k Gold",
-      "Weight": "4.2g",
       "Size": "Adjustable 6-10",
       "Origin": "Canada",
       "Warranty": "Lifetime"
@@ -46,7 +46,6 @@ const products = [
       "Material": "Stainless Steel",
       "Length": "20-24 inches",
       "Width": "8mm",
-      "Weight": "85g",
       "Clasp": "Lobster Claw"
     }
   },
@@ -166,7 +165,6 @@ const products = [
       "Material": "14k Gold",
       "Pendant Size": "15mm x 20mm",
       "Chain Length": "18 inches",
-      "Weight": "2.8g",
       "Finish": "Polished"
     }
   },
@@ -191,7 +189,6 @@ const products = [
       "Material": "14K Gold Plated Stainless Steel",
       "Length": "8.5 inches (Adjustable)",
       "Width": "12mm",
-      "Weight": "65g",
       "Clasp": "Hidden Safety Lock",
       "Shipping": "4-7 Business Days - Discreet & Fast",
       "Warranty": "HypeCo Guarantee Included"
@@ -201,6 +198,7 @@ const products = [
 
 const Product = () => {
   const { id } = useParams();
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("7");
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -223,14 +221,25 @@ const Product = () => {
   }
 
   const handleAddToCart = () => {
-    toast.success("Added to cart!", {
-      description: `${product.name} has been added to your cart.`,
+    if (!product) return;
+    
+    const productWithSize = {
+      ...product,
+      selectedSize: product.category === "Rings" ? selectedSize : undefined
+    };
+    
+    addToCart(productWithSize, quantity, product.category === "Rings" ? selectedSize : undefined);
+    
+    toast.success("Adicionado ao carrinho!", {
+      description: `${product.name} foi adicionado ao seu carrinho.`,
     });
   };
 
   const handleAddToWishlist = () => {
-    toast.success("Added to wishlist!", {
-      description: `${product.name} has been saved to your wishlist.`,
+    if (!product) return;
+    
+    toast.success("Adicionado à lista de desejos!", {
+      description: `${product.name} foi salvo na sua lista de desejos.`,
     });
   };
 

@@ -6,6 +6,8 @@ import { ShoppingBag, Heart, Star, Filter, ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState } from "react";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "sonner";
 
 const products = [
   {
@@ -163,9 +165,27 @@ const categories = {
 
 const Category = () => {
   const { category } = useParams();
+  const { addToCart } = useCart();
   const [sortBy, setSortBy] = useState("featured");
   
   const categoryData = categories[category?.toLowerCase() || ""];
+
+  const handleAddToCart = (product: any, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(product);
+    toast.success("Produto adicionado ao carrinho!", {
+      description: `${product.name} foi adicionado ao seu carrinho.`,
+    });
+  };
+
+  const handleAddToWishlist = (product: any, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toast.success("Adicionado à lista de desejos!", {
+      description: `${product.name} foi salvo na sua lista de desejos.`,
+    });
+  };
 
   if (!categoryData) {
     return (
@@ -267,10 +287,19 @@ const Category = () => {
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="flex space-x-4">
-                        <Button size="icon" variant="secondary" className="bg-primary hover:bg-primary/90">
+                        <Button 
+                          size="icon" 
+                          variant="secondary" 
+                          className="bg-primary hover:bg-primary/90"
+                          onClick={(e) => handleAddToCart(product, e)}
+                        >
                           <ShoppingBag className="h-4 w-4" />
                         </Button>
-                        <Button size="icon" variant="secondary">
+                        <Button 
+                          size="icon" 
+                          variant="secondary"
+                          onClick={(e) => handleAddToWishlist(product, e)}
+                        >
                           <Heart className="h-4 w-4" />
                         </Button>
                       </div>

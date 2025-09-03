@@ -1,7 +1,8 @@
-import { ShoppingBag, Search, User, Menu } from "lucide-react";
+import { ShoppingBag, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import CartDropdown from "./CartDropdown";
 
 const Header = () => {
   return (
@@ -54,15 +55,7 @@ const Header = () => {
             <Button variant="ghost" size="icon">
               <User className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="relative">
-              <ShoppingBag className="h-5 w-5" />
-              <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full text-xs h-5 w-5 flex items-center justify-center">
-                2
-              </span>
-            </Button>
-            <Button variant="ghost" size="icon" className="lg:hidden">
-              <Menu className="h-5 w-5" />
-            </Button>
+            <CartDropdown />
           </div>
         </div>
       </div>

@@ -308,10 +308,15 @@ const Product = () => {
             product: {
               styles: {
                 product: {
+                  'max-width': '100%',
+                  'margin-left': '0px',
+                  'margin-bottom': '0px',
+                  'width': '100%',
                   '@media (min-width: 601px)': {
-                    'max-width': 'calc(25% - 20px)',
-                    'margin-left': '20px',
-                    'margin-bottom': '50px'
+                    'max-width': '100%',
+                    'margin-left': '0px',
+                    'margin-bottom': '0px',
+                    'width': '100%'
                   }
                 },
                 button: {

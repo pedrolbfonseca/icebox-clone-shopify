@@ -13,8 +13,8 @@ const products = [
   {
     id: 1,
     name: "18k Gold Ring",
-    price: "CAD$ 3,250",
-    originalPrice: "CAD$ 4,160",
+    price: "CAD$ 3,250.00",
+    originalPrice: "CAD$ 4,160.00",
     image: "placeholder",
     category: "Rings",
     description: "Exquisite 18k gold ring with premium craftsmanship and timeless design.",
@@ -25,7 +25,7 @@ const products = [
   {
     id: 2,
     name: "Premium Cuban Chain",
-    price: "CAD$ 6,240",
+    price: "CAD$ 6,240.00",
     originalPrice: null,
     image: "placeholder", 
     category: "Chains",
@@ -37,8 +37,8 @@ const products = [
   {
     id: 3,
     name: "Diamond Watch",
-    price: "CAD$ 15,600",
-    originalPrice: "CAD$ 19,500",
+    price: "CAD$ 15,600.00",
+    originalPrice: "CAD$ 19,500.00",
     image: "placeholder",
     category: "Watches",
     description: "Luxury diamond-encrusted timepiece with Swiss movement.",
@@ -49,7 +49,7 @@ const products = [
   {
     id: 4,
     name: "Emerald Earrings",
-    price: "CAD$ 8,450",
+    price: "CAD$ 8,450.00",
     originalPrice: null,
     image: "placeholder",
     category: "Earrings",
@@ -61,8 +61,8 @@ const products = [
   {
     id: 5,
     name: "Diamond Tennis Bracelet",
-    price: "CAD$ 10,660",
-    originalPrice: "CAD$ 12,740",
+    price: "CAD$ 10,660.00",
+    originalPrice: "CAD$ 12,740.00",
     image: "placeholder",
     category: "Bracelets",
     description: "Classic tennis bracelet with brilliant diamonds.",
@@ -73,7 +73,7 @@ const products = [
   {
     id: 6,
     name: "Pearl Necklace",
-    price: "CAD$ 4,940",
+    price: "CAD$ 4,940.00",
     originalPrice: null,
     image: "placeholder",
     category: "Necklaces",
@@ -85,8 +85,8 @@ const products = [
   {
     id: 7,
     name: "Sapphire Ring",
-    price: "CAD$ 7,800",
-    originalPrice: "CAD$ 9,100",
+    price: "CAD$ 7,800.00",
+    originalPrice: "CAD$ 9,100.00",
     image: "placeholder",
     category: "Rings",
     description: "Royal blue sapphire ring with white gold setting.",
@@ -97,7 +97,7 @@ const products = [
   {
     id: 8,
     name: "Gold Pendant",
-    price: "CAD$ 3,900",
+    price: "CAD$ 3,900.00",
     originalPrice: null,
     image: "placeholder",
     category: "Necklaces",
@@ -109,7 +109,7 @@ const products = [
   {
     id: 9,
     name: "Chrome Hearts Cross Bracelet",
-    price: "CAD$ 63",
+    price: "CAD$ 63.00",
     originalPrice: null,
     image: "/lovable-uploads/5a4ea2ea-8a67-498a-b4cb-cf901f3c34b5.png",
     images: [
@@ -126,7 +126,7 @@ const products = [
   {
     id: 10,
     name: "Infinity Four Clover Bracelet",
-    price: "$97",
+    price: "CAD$ 97.00",
     originalPrice: null,
     image: "/lovable-uploads/c35a4ea4-7563-4030-9a2e-6d6bac497874.png",
     images: [

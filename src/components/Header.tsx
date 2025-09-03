@@ -32,8 +32,8 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <Link to="/category/men" className="text-foreground hover:text-primary transition-colors">Men</Link>
-            <Link to="/category/women" className="text-foreground hover:text-primary transition-colors">Women</Link>
+            <Link to="/" className="text-foreground hover:text-primary transition-colors">Home</Link>
+            <Link to="/category/bracelets" className="text-foreground hover:text-primary transition-colors">Bracelets</Link>
             <Link to="/category/rings" className="text-foreground hover:text-primary transition-colors">Rings</Link>
             <Link to="/category/chains" className="text-foreground hover:text-primary transition-colors">Chains</Link>
             <Link to="/category/watches" className="text-foreground hover:text-primary transition-colors">Watches</Link>

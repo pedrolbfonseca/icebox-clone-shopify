@@ -103,6 +103,18 @@ const products = [
     features: ["14k Gold", "Minimalist Design", "Durable Chain", "Gift Ready"],
     rating: 4.5,
     reviews: 76
+  },
+  {
+    id: 9,
+    name: "Chrome Hearts Inspired 14K Gold Plated Cross Link Bracelet",
+    price: "CAD$ 63",
+    originalPrice: null,
+    image: "placeholder",
+    category: "Bracelets",
+    description: "Luxury Chrome Hearts inspired cross link bracelet crafted with precision and style.",
+    features: ["14K Gold Plated", "Cross Link Design", "HypeCo Guarantee", "Fast Shipping 4-7 Days"],
+    rating: 4.9,
+    reviews: 187
   }
 ];
 
@@ -116,6 +128,11 @@ const categories = {
     name: "Women's Collection", 
     description: "Elegant pieces that celebrate feminine beauty",
     products: products.filter(p => ["Earrings", "Necklaces", "Bracelets", "Rings"].includes(p.category))
+  },
+  "bracelets": {
+    name: "Bracelets",
+    description: "Stylish bracelets and statement pieces for every occasion",
+    products: products.filter(p => p.category === "Bracelets")
   },
   "rings": {
     name: "Rings",

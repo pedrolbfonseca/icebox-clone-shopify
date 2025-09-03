@@ -2,6 +2,11 @@ import { Link } from "react-router-dom";
 
 const categories = [
   {
+    name: "BRACELETS",
+    description: "Stylish bracelets and statement pieces",
+    icon: "✨"
+  },
+  {
     name: "RINGS",
     description: "Exclusive gold and diamond rings",
     icon: "💍"
@@ -15,11 +20,6 @@ const categories = [
     name: "WATCHES",
     description: "Swiss luxury timepieces",
     icon: "⌚"
-  },
-  {
-    name: "EARRINGS",
-    description: "Sophisticated earrings with precious stones",
-    icon: "✨"
   }
 ];
 

@@ -182,7 +182,7 @@ const products = [
   },
   {
     id: 9,
-    name: "Chrome Hearts Inspired 14K Gold Plated Cross Link Bracelet",
+    name: "Chrome Hearts Inspired Cross Link Bracelet",
     price: "CAD$ 63",
     originalPrice: null,
     image: "/lovable-uploads/5a4ea2ea-8a67-498a-b4cb-cf901f3c34b5.png",

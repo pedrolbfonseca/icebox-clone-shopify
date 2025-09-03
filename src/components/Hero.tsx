@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -10,7 +11,7 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-8 min-h-[80vh] items-center">
           
           {/* Men's Section */}
-          <div className="relative group cursor-pointer overflow-hidden rounded-lg">
+          <Link to="/category/men" className="relative group cursor-pointer overflow-hidden rounded-lg">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
             <div className="aspect-[4/5] bg-muted flex items-end justify-center relative">
               <div className="absolute inset-0 bg-gradient-to-br from-muted/50 to-muted opacity-20"></div>
@@ -32,10 +33,10 @@ const Hero = () => {
                 </Button>
               </div>
             </div>
-          </div>
+          </Link>
 
-          {/* Women's Section */}
-          <div className="relative group cursor-pointer overflow-hidden rounded-lg">
+          {/* 2025 Collection Section */}
+          <Link to="/category/women" className="relative group cursor-pointer overflow-hidden rounded-lg">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
             <div className="aspect-[4/5] bg-muted flex items-end justify-center relative">
               <div className="absolute inset-0 bg-gradient-to-br from-muted/50 to-muted opacity-20"></div>
@@ -57,7 +58,7 @@ const Hero = () => {
                 </Button>
               </div>
             </div>
-          </div>
+          </Link>
 
         </div>
 

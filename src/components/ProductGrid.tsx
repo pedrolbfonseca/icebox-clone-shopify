@@ -1,55 +1,104 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ShoppingBag, Heart } from "lucide-react";
+import { ShoppingBag, Heart, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const products = [
   {
     id: 1,
     name: "18k Gold Ring",
-    price: "R$ 2.500",
-    originalPrice: "R$ 3.200",
+    price: "CAD$ 3,250",
+    originalPrice: "CAD$ 4,160",
     image: "placeholder",
-    category: "Rings"
+    category: "Rings",
+    description: "Exquisite 18k gold ring with premium craftsmanship and timeless design.",
+    features: ["18k Gold", "Premium Quality", "Lifetime Warranty", "Gift Box Included"],
+    rating: 4.8,
+    reviews: 156
   },
   {
     id: 2,
     name: "Premium Cuban Chain",
-    price: "R$ 4.800",
+    price: "CAD$ 6,240",
     originalPrice: null,
     image: "placeholder", 
-    category: "Chains"
+    category: "Chains",
+    description: "Heavy-duty premium Cuban chain made from the finest materials.",
+    features: ["Premium Material", "Water Resistant", "Adjustable Length", "Certificate Included"],
+    rating: 4.9,
+    reviews: 203
   },
   {
     id: 3,
     name: "Diamond Watch",
-    price: "R$ 12.000",
-    originalPrice: "R$ 15.000",
+    price: "CAD$ 15,600",
+    originalPrice: "CAD$ 19,500",
     image: "placeholder",
-    category: "Watches"
+    category: "Watches",
+    description: "Luxury diamond-encrusted timepiece with Swiss movement.",
+    features: ["Swiss Movement", "Real Diamonds", "Water Proof", "2 Year Warranty"],
+    rating: 5.0,
+    reviews: 89
   },
   {
     id: 4,
     name: "Emerald Earrings",
-    price: "R$ 6.500",
+    price: "CAD$ 8,450",
     originalPrice: null,
     image: "placeholder",
-    category: "Earrings"
+    category: "Earrings",
+    description: "Stunning emerald earrings with brilliant cut stones.",
+    features: ["Natural Emerald", "Sterling Silver", "Hypoallergenic", "Elegant Design"],
+    rating: 4.7,
+    reviews: 124
   },
   {
     id: 5,
     name: "Tennis Bracelet",
-    price: "R$ 8.200",
-    originalPrice: "R$ 9.800",
+    price: "CAD$ 10,660",
+    originalPrice: "CAD$ 12,740",
     image: "placeholder",
-    category: "Bracelets"
+    category: "Bracelets",
+    description: "Classic tennis bracelet with brilliant diamonds.",
+    features: ["Diamond Stones", "Flexible Design", "Secure Clasp", "Luxury Box"],
+    rating: 4.8,
+    reviews: 178
   },
   {
     id: 6,
     name: "Pearl Necklace",
-    price: "R$ 3.800",
+    price: "CAD$ 4,940",
     originalPrice: null,
     image: "placeholder",
-    category: "Necklaces"
+    category: "Necklaces",
+    description: "Elegant freshwater pearl necklace with gold clasp.",
+    features: ["Freshwater Pearls", "Gold Clasp", "Multiple Lengths", "Velvet Case"],
+    rating: 4.6,
+    reviews: 97
+  },
+  {
+    id: 7,
+    name: "Sapphire Ring",
+    price: "CAD$ 7,800",
+    originalPrice: "CAD$ 9,100",
+    image: "placeholder",
+    category: "Rings",
+    description: "Royal blue sapphire ring with white gold setting.",
+    features: ["Natural Sapphire", "White Gold", "Expert Cut", "Certificate"],
+    rating: 4.9,
+    reviews: 145
+  },
+  {
+    id: 8,
+    name: "Gold Pendant",
+    price: "CAD$ 3,900",
+    originalPrice: null,
+    image: "placeholder",
+    category: "Necklaces",
+    description: "Minimalist gold pendant perfect for everyday wear.",
+    features: ["14k Gold", "Minimalist Design", "Durable Chain", "Gift Ready"],
+    rating: 4.5,
+    reviews: 76
   }
 ];
 
@@ -67,63 +116,81 @@ const ProductGrid = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
-            <Card key={product.id} className="group cursor-pointer overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300">
-              <div className="relative overflow-hidden">
-                <div className="aspect-square bg-muted flex items-center justify-center relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10"></div>
-                  <span className="text-4xl font-bold text-primary/50">
-                    {product.category.charAt(0)}
-                  </span>
-                </div>
-                
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="flex space-x-4">
-                    <Button size="icon" variant="secondary" className="bg-primary hover:bg-primary/90">
-                      <ShoppingBag className="h-4 w-4" />
-                    </Button>
-                    <Button size="icon" variant="secondary">
-                      <Heart className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Sale badge */}
-                {product.originalPrice && (
-                  <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
-                    SALE
-                  </div>
-                )}
-              </div>
-
-              <CardContent className="p-6">
-                <div className="text-sm text-primary font-medium mb-2">
-                  {product.category}
-                </div>
-                <h3 className="font-semibold text-card-foreground mb-3 group-hover:text-primary transition-colors">
-                  {product.name}
-                </h3>
-                <div className="flex items-center space-x-2">
-                  <span className="text-lg font-bold text-foreground">
-                    {product.price}
-                  </span>
-                  {product.originalPrice && (
-                    <span className="text-sm text-muted-foreground line-through">
-                      {product.originalPrice}
+            <Link key={product.id} to={`/product/${product.id}`}>
+              <Card className="group cursor-pointer overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300">
+                <div className="relative overflow-hidden">
+                  <div className="aspect-square bg-muted flex items-center justify-center relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10"></div>
+                    <span className="text-4xl font-bold text-primary/50">
+                      {product.category.charAt(0)}
                     </span>
+                  </div>
+                  
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="flex space-x-4">
+                      <Button size="icon" variant="secondary" className="bg-primary hover:bg-primary/90">
+                        <ShoppingBag className="h-4 w-4" />
+                      </Button>
+                      <Button size="icon" variant="secondary">
+                        <Heart className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Sale badge */}
+                  {product.originalPrice && (
+                    <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
+                      SALE
+                    </div>
                   )}
                 </div>
-              </CardContent>
-            </Card>
+
+                <CardContent className="p-6">
+                  <div className="text-sm text-primary font-medium mb-2">
+                    {product.category}
+                  </div>
+                  <h3 className="font-semibold text-card-foreground mb-3 group-hover:text-primary transition-colors">
+                    {product.name}
+                  </h3>
+                  
+                  {/* Rating */}
+                  <div className="flex items-center mb-3">
+                    <div className="flex items-center">
+                      {[...Array(5)].map((_, i) => (
+                        <Star 
+                          key={i} 
+                          className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'fill-primary text-primary' : 'text-muted-foreground'}`} 
+                        />
+                      ))}
+                    </div>
+                    <span className="ml-2 text-sm text-muted-foreground">({product.reviews})</span>
+                  </div>
+                  
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-foreground">
+                      {product.price}
+                    </span>
+                    {product.originalPrice && (
+                      <span className="text-sm text-muted-foreground line-through">
+                        {product.originalPrice}
+                      </span>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            View All Products
-          </Button>
+          <Link to="/category/rings">
+            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              View All Products
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

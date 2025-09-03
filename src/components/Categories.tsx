@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const categories = [
   {
     name: "RINGS",
@@ -36,8 +38,9 @@ const Categories = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category, index) => (
-            <div 
+            <Link 
               key={index}
+              to={`/category/${category.name.toLowerCase()}`}
               className="group cursor-pointer p-8 bg-card rounded-lg border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-blue text-center"
             >
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -49,7 +52,7 @@ const Categories = () => {
               <p className="text-muted-foreground text-sm">
                 {category.description}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

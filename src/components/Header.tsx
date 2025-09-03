@@ -1,6 +1,7 @@
 import { ShoppingBag, Search, User, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
         {/* Top bar */}
         <div className="flex items-center justify-between py-2 text-sm text-muted-foreground">
           <div className="hidden md:block">
-            Free shipping on orders over R$ 500
+            Free shipping on orders over CAD$ 500
           </div>
           <div className="flex items-center space-x-4">
             <span>Contact: +1 (437) 473-5348</span>
@@ -22,19 +23,21 @@ const Header = () => {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              HYPE COMPANY
-            </h1>
+            <Link to="/">
+              <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                HYPE COMPANY
+              </h1>
+            </Link>
           </div>
 
           {/* Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <a href="#" className="text-foreground hover:text-primary transition-colors">Men</a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">Women</a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">Rings</a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">Chains</a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">Watches</a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">Outlet</a>
+            <Link to="/category/men" className="text-foreground hover:text-primary transition-colors">Men</Link>
+            <Link to="/category/women" className="text-foreground hover:text-primary transition-colors">Women</Link>
+            <Link to="/category/rings" className="text-foreground hover:text-primary transition-colors">Rings</Link>
+            <Link to="/category/chains" className="text-foreground hover:text-primary transition-colors">Chains</Link>
+            <Link to="/category/watches" className="text-foreground hover:text-primary transition-colors">Watches</Link>
+            <a href="#outlet" className="text-foreground hover:text-primary transition-colors">Outlet</a>
           </nav>
 
           {/* Search */}

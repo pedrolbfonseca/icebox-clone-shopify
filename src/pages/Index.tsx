@@ -2,6 +2,8 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProductGrid from "@/components/ProductGrid";
 import Categories from "@/components/Categories";
+import TrustSignals from "@/components/TrustSignals";
+import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -9,8 +11,10 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <Hero />
+      <TrustSignals />
       <Categories />
       <ProductGrid />
+      <Testimonials />
       <Footer />
     </div>
   );

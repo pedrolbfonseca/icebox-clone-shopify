@@ -9,6 +9,45 @@ import { toast } from "sonner";
 
 const products = [
   {
+    id: 14,
+    name: "Cuban Bracelet Solid w/ Bust Down Locker",
+    price: "From CAD$ 145.00",
+    originalPrice: null,
+    image: "/lovable-uploads/f695012f-7e88-460d-b20d-c36126348468.png",
+    images: [
+      "/lovable-uploads/f695012f-7e88-460d-b20d-c36126348468.png",
+      "/lovable-uploads/6c290916-253c-4d35-bc6f-d45f9c4dde94.png",
+      "/lovable-uploads/83e6027a-1018-4e85-aaf3-0e62bf00e4fd.png",
+      "/lovable-uploads/bea96d94-5615-4950-a08b-9393fe58f85b.png",
+      "/lovable-uploads/411f8cdd-a151-416d-a790-0469d75d3d1b.png",
+      "/lovable-uploads/fc2b2501-6a2f-4226-aee8-ec28ae7b593d.png",
+      "/lovable-uploads/e59352ce-97c8-475b-bbec-98b54b8c3e39.png",
+      "/lovable-uploads/86c3616a-9d32-4ed7-b92e-22b2543c98f1.png"
+    ],
+    category: "Bracelets",
+    description: "Premium Cuban bracelet with solid construction and bust down locker design. Features full ice out setting with maximum brilliance and luxury finish.",
+    features: ["Solid Construction", "Bust Down Locker Design", "Full Ice Out Setting", "Multiple Widths & Lengths"],
+    rating: 4.9,
+    reviews: 89,
+    customizable: true,
+    colorOptions: ["Silver", "Gold"],
+    widthOptions: ["8mm", "12mm", "15mm", "20mm"],
+    pricingOptions: [
+      { size: "7in x 8mm", price: "CAD$ 145.00", value: 145.00 },
+      { size: "7in x 12mm", price: "CAD$ 165.00", value: 165.00 },
+      { size: "7in x 15mm", price: "CAD$ 185.00", value: 185.00 },
+      { size: "7in x 20mm", price: "CAD$ 215.00", value: 215.00 },
+      { size: "8in x 8mm", price: "CAD$ 155.00", value: 155.00 },
+      { size: "8in x 12mm", price: "CAD$ 175.00", value: 175.00 },
+      { size: "8in x 15mm", price: "CAD$ 195.00", value: 195.00 },
+      { size: "8in x 20mm", price: "CAD$ 225.00", value: 225.00 },
+      { size: "9in x 8mm", price: "CAD$ 165.00", value: 165.00 },
+      { size: "9in x 12mm", price: "CAD$ 185.00", value: 185.00 },
+      { size: "9in x 15mm", price: "CAD$ 205.00", value: 205.00 },
+      { size: "9in x 20mm", price: "CAD$ 235.00", value: 235.00 }
+    ]
+  },
+  {
     id: 13,
     name: "Solid Silver Ice Out Cuban Link Chain",
     price: "From CAD$ 165.00",

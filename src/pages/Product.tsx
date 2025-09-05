@@ -30,12 +30,16 @@ const products = [
     name: "Cuban Bracelet Solid w/ Bust Down Locker",
     price: "From CAD$ 145.00",
     originalPrice: null,
-    image: "/src/assets/cuban-bracelet-silver-1.png",
+    image: "/lovable-uploads/f695012f-7e88-460d-b20d-c36126348468.png",
     images: [
-      "/src/assets/cuban-bracelet-silver-1.png",
-      "/src/assets/cuban-bracelet-gold-1.png",
-      "/src/assets/cuban-bracelet-silver-2.png",
-      "/src/assets/cuban-bracelet-gold-2.png"
+      "/lovable-uploads/f695012f-7e88-460d-b20d-c36126348468.png",
+      "/lovable-uploads/6c290916-253c-4d35-bc6f-d45f9c4dde94.png",
+      "/lovable-uploads/83e6027a-1018-4e85-aaf3-0e62bf00e4fd.png",
+      "/lovable-uploads/bea96d94-5615-4950-a08b-9393fe58f85b.png",
+      "/lovable-uploads/411f8cdd-a151-416d-a790-0469d75d3d1b.png",
+      "/lovable-uploads/fc2b2501-6a2f-4226-aee8-ec28ae7b593d.png",
+      "/lovable-uploads/e59352ce-97c8-475b-bbec-98b54b8c3e39.png",
+      "/lovable-uploads/86c3616a-9d32-4ed7-b92e-22b2543c98f1.png"
     ],
     category: "Bracelets",
     description: "Premium Cuban bracelet with solid construction and bust down locker design. Features full ice out setting with maximum brilliance and luxury finish. Available in multiple widths and lengths for perfect fit. Choose between Silver and Gold colors. This statement piece combines sophisticated design with exceptional craftsmanship.",

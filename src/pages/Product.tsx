@@ -239,6 +239,8 @@ const Product = () => {
   const [selectedSize, setSelectedSize] = useState("7");
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [selectedPricingOption, setSelectedPricingOption] = useState(0);
+  const [selectedLength, setSelectedLength] = useState("7in");
+  const [selectedWidth, setSelectedWidth] = useState("8mm");
   
   const product = products.find(p => p.id === parseInt(id || "0"));
 
@@ -256,6 +258,16 @@ const Product = () => {
       </div>
     );
   }
+
+  // Calculate price for product 14 based on selected options
+  const getProduct14Price = () => {
+    if (product?.id === 14) {
+      const combinedSize = `${selectedLength} x ${selectedWidth}`;
+      const pricingOption = (product as any).pricingOptions?.find((option: any) => option.size === combinedSize);
+      return pricingOption ? pricingOption.price : product.price;
+    }
+    return product?.price;
+  };
 
   const handleAddToCart = () => {
     if (!product) return;
@@ -1167,9 +1179,11 @@ const Product = () => {
               {/* Price */}
               <div className="flex items-center space-x-4 mb-6">
                 <span className="text-3xl font-bold text-foreground">
-                  {product.customizable && (product as any).pricingOptions 
-                    ? (product as any).pricingOptions[selectedPricingOption].price 
-                    : product.price}
+                  {product.id === 14 
+                    ? getProduct14Price()
+                    : product.customizable && (product as any).pricingOptions 
+                      ? (product as any).pricingOptions[selectedPricingOption].price 
+                      : product.price}
                 </span>
                 {product.originalPrice && (
                   <span className="text-xl text-muted-foreground line-through">
@@ -1321,6 +1335,37 @@ const Product = () => {
               </div>
             ) : product.id === 14 ? (
               <div className="space-y-4">
+                {/* Size Options */}
+                <div>
+                  <h3 className="font-semibold text-foreground mb-3">Size</h3>
+                  <Select value={selectedLength} onValueChange={setSelectedLength}>
+                    <SelectTrigger className="w-full bg-background border border-border">
+                      <SelectValue placeholder="Select size" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-background border border-border z-50">
+                      <SelectItem value="7in">7 inches</SelectItem>
+                      <SelectItem value="8in">8 inches</SelectItem>
+                      <SelectItem value="9in">9 inches</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Width Options */}
+                <div>
+                  <h3 className="font-semibold text-foreground mb-3">Width</h3>
+                  <Select value={selectedWidth} onValueChange={setSelectedWidth}>
+                    <SelectTrigger className="w-full bg-background border border-border">
+                      <SelectValue placeholder="Select width" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-background border border-border z-50">
+                      <SelectItem value="8mm">8mm</SelectItem>
+                      <SelectItem value="12mm">12mm</SelectItem>
+                      <SelectItem value="15mm">15mm</SelectItem>
+                      <SelectItem value="20mm">20mm</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
                 <div className="w-full">
                   <div id='product-component-1757112265815' className="w-full"></div>
                 </div>

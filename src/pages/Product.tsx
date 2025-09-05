@@ -305,8 +305,9 @@ const Product = () => {
       isProduct9: product?.id === 9,
       isProduct10: product?.id === 10,
       isProduct11: product?.id === 11,
+      isProduct12: product?.id === 12,
       isProduct13: product?.id === 13,
-      elementExists: !!document.getElementById('product-component-1756914985987') || !!document.getElementById('product-component-1756918892033') || !!document.getElementById('product-component-1757042940439') || !!document.getElementById('product-component-1757045599932') || !!document.getElementById('product-component-1757112265815')
+      elementExists: !!document.getElementById('product-component-1756914985987') || !!document.getElementById('product-component-1756918892033') || !!document.getElementById('product-component-1757042940439') || !!document.getElementById('product-component-1757045599932') || !!document.getElementById('product-component-1757112265815') || !!document.getElementById('product-component-1757113127633')
     });
 
     if (product?.id === 9) {
@@ -337,6 +338,16 @@ const Product = () => {
         
         if (element) {
           loadShopifyWidget11();
+        }
+      }, 100);
+    } else if (product?.id === 12) {
+      // Wait for element to be rendered
+      setTimeout(() => {
+        const element = document.getElementById('product-component-1757113127633');
+        console.log('Widget element found for product 12:', !!element);
+        
+        if (element) {
+          loadShopifyWidget12();
         }
       }, 100);
     } else if (product?.id === 13) {
@@ -782,6 +793,159 @@ const Product = () => {
                   }
                 },
                 iconPath: {
+                  "fill": "#000000"
+                }
+              }
+            }
+          }
+        });
+      });
+    }
+  };
+
+  const loadShopifyWidget12 = () => {
+    console.log('Loading Shopify widget for product 12...');
+    
+    const script = document.createElement('script');
+    script.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+    script.async = true;
+    script.onload = () => {
+      console.log('Shopify script loaded for product 12');
+      initShopifyWidget12();
+    };
+    document.head.appendChild(script);
+  };
+
+  const initShopifyWidget12 = () => {
+    if (window.ShopifyBuy && window.ShopifyBuy.UI) {
+      console.log('Initializing Shopify widget for product 12...');
+      
+      const client = window.ShopifyBuy.buildClient({
+        domain: '2jxw06-70.myshopify.com',
+        storefrontAccessToken: 'e74939e8f38608461f2f49b8bc31f90f',
+      });
+
+      window.ShopifyBuy.UI.onReady(client).then((ui) => {
+        console.log('Creating Shopify component for product 12...');
+        
+        ui.createComponent('product', {
+          id: '9845658779934',
+          node: document.getElementById('product-component-1757113127633'),
+          moneyFormat: '%24%7B%7Bamount%7D%7D',
+          options: {
+            "product": {
+              "styles": {
+                "product": {
+                  "@media (min-width: 601px)": {
+                    "max-width": "calc(25% - 20px)",
+                    "margin-left": "20px",
+                    "margin-bottom": "50px"
+                  }
+                },
+                "button": {
+                  "font-family": "Arial, sans-serif",
+                  "color": "#000000",
+                  ":hover": {
+                    "color": "#000000",
+                    "background-color": "#65b3cc"
+                  },
+                  "background-color": "#70c7e3",
+                  ":focus": {
+                    "background-color": "#65b3cc"
+                  }
+                }
+              },
+              "contents": {
+                "img": false,
+                "title": false,
+                "price": false
+              },
+              "text": {
+                "button": "Add to cart"
+              }
+            },
+            "productSet": {
+              "styles": {
+                "products": {
+                  "@media (min-width: 601px)": {
+                    "margin-left": "-20px"
+                  }
+                }
+              }
+            },
+            "modalProduct": {
+              "contents": {
+                "img": false,
+                "imgWithCarousel": true,
+                "button": false,
+                "buttonWithQuantity": true
+              },
+              "styles": {
+                "product": {
+                  "@media (min-width: 601px)": {
+                    "max-width": "100%",
+                    "margin-left": "0px",
+                    "margin-bottom": "0px"
+                  }
+                },
+                "button": {
+                  "font-family": "Arial, sans-serif",
+                  "color": "#000000",
+                  ":hover": {
+                    "color": "#000000",
+                    "background-color": "#65b3cc"
+                  },
+                  "background-color": "#70c7e3",
+                  ":focus": {
+                    "background-color": "#65b3cc"
+                  }
+                }
+              },
+              "text": {
+                "button": "Add to cart"
+              }
+            },
+            "option": {},
+            "cart": {
+              "styles": {
+                "button": {
+                  "font-family": "Arial, sans-serif",
+                  "color": "#000000",
+                  ":hover": {
+                    "color": "#000000",
+                    "background-color": "#65b3cc"
+                  },
+                  "background-color": "#70c7e3",
+                  ":focus": {
+                    "background-color": "#65b3cc"
+                  }
+                }
+              },
+              "text": {
+                "total": "Subtotal",
+                "button": "Checkout"
+              },
+              "popup": false
+            },
+            "toggle": {
+              "styles": {
+                "toggle": {
+                  "font-family": "Arial, sans-serif",
+                  "background-color": "#70c7e3",
+                  ":hover": {
+                    "background-color": "#65b3cc"
+                  },
+                  ":focus": {
+                    "background-color": "#65b3cc"
+                  }
+                },
+                "count": {
+                  "color": "#000000",
+                  ":hover": {
+                    "color": "#000000"
+                  }
+                },
+                "iconPath": {
                   "fill": "#000000"
                 }
               }
@@ -1325,6 +1489,12 @@ const Product = () => {
                   <div id='product-component-1757042940439' className="w-full"></div>
                 </div>
               </div>
+            ) : product.id === 12 ? (
+              <div className="space-y-4">
+                <div className="w-full">
+                  <div id='product-component-1757113127633' className="w-full"></div>
+                </div>
+              </div>
             ) : product.id === 13 ? (
               <div className="space-y-4">
                 <div className="w-full">
@@ -1377,7 +1547,7 @@ const Product = () => {
             )}
 
             {/* Action Buttons - Only for non-Shopify products */}
-            {product.id !== 9 && product.id !== 10 && product.id !== 11 && product.id !== 13 && product.id !== 14 && (
+            {product.id !== 9 && product.id !== 10 && product.id !== 11 && product.id !== 12 && product.id !== 13 && product.id !== 14 && (
               <div className="space-y-4">
                 <div className="flex space-x-4">
                   <Button 
@@ -1407,7 +1577,7 @@ const Product = () => {
             )}
 
             {/* Wishlist and Share for Shopify Products */}
-            {(product.id === 9 || product.id === 10 || product.id === 11 || product.id === 13 || product.id === 14) && (
+            {(product.id === 9 || product.id === 10 || product.id === 11 || product.id === 12 || product.id === 13 || product.id === 14) && (
               <div className="flex space-x-4">
                 <Button 
                   size="lg" 

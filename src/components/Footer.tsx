@@ -10,8 +10,8 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <LogoProcessor
-              logoUrl="/lovable-uploads/a308769a-142b-4c36-afc4-0ce64ae89209.png"
-              alt="Hype Company Logo"
+              logoUrl="/lovable-uploads/92dbd2e5-4a51-4e7b-8507-43765ba5081c.png"
+              alt="HYPECO Logo"
               className="h-24 w-auto object-contain filter brightness-100 contrast-125"
               loading="eager"
               draggable={false}

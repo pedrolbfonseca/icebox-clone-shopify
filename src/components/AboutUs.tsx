@@ -61,13 +61,11 @@ const AboutUs = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">💎</div>
-                  <h4 className="text-2xl font-bold text-foreground mb-2">Since 2020</h4>
-                  <p className="text-muted-foreground">Crafting Excellence</p>
-                </div>
-              </div>
+              <img 
+                src="/lovable-uploads/5948aded-e9f8-400f-88a3-1f9d95c49fed.png"
+                alt="Hype Company jewelry showcase featuring chains, pendants, rings, and watches displayed on glass shelves"
+                className="w-full aspect-square object-cover rounded-2xl border border-border shadow-lg"
+              />
             </div>
           </div>
 

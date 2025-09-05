@@ -63,9 +63,8 @@ const products = [
     name: "Custom Letter and Numbers Pendant",
     price: "From CAD$ 75.00",
     originalPrice: null,
-    image: "/lovable-uploads/64b94dbd-78ff-4f2c-a6f0-445f0e9d28ca.png",
+    image: "/lovable-uploads/f021de8d-3d13-4394-a972-d6357eb03ca0.png",
     images: [
-      "/lovable-uploads/64b94dbd-78ff-4f2c-a6f0-445f0e9d28ca.png",
       "/lovable-uploads/f021de8d-3d13-4394-a972-d6357eb03ca0.png"
     ],
     category: "Pendants",

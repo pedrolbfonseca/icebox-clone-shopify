@@ -65,9 +65,8 @@ const products = [
     name: "Custom Letter and Numbers Pendant",
     price: "From CAD$ 75.00",
     originalPrice: null,
-    image: "/lovable-uploads/64b94dbd-78ff-4f2c-a6f0-445f0e9d28ca.png",
+    image: "/lovable-uploads/f021de8d-3d13-4394-a972-d6357eb03ca0.png",
     images: [
-      "/lovable-uploads/64b94dbd-78ff-4f2c-a6f0-445f0e9d28ca.png",
       "/lovable-uploads/f021de8d-3d13-4394-a972-d6357eb03ca0.png"
     ],
     category: "Pendants",
@@ -84,102 +83,6 @@ const products = [
       { letters: 5, price: "CAD$ 240.00", value: 240 },
       { letters: 6, price: "CAD$ 260.00", value: 260 }
     ]
-  },
-  {
-    id: 1,
-    name: "18k Gold Ring",
-    price: "CAD$ 3,250.00",
-    originalPrice: "CAD$ 4,160.00",
-    image: "placeholder",
-    category: "Rings",
-    description: "Exquisite 18k gold ring with premium craftsmanship and timeless design.",
-    features: ["18k Gold", "Premium Quality", "Lifetime Warranty", "Gift Box Included"],
-    rating: 4.8,
-    reviews: 156
-  },
-  {
-    id: 2,
-    name: "Premium Cuban Chain",
-    price: "CAD$ 6,240.00",
-    originalPrice: null,
-    image: "placeholder", 
-    category: "Chains",
-    description: "Heavy-duty premium Cuban chain made from the finest materials.",
-    features: ["Premium Material", "Water Resistant", "Adjustable Length", "Certificate Included"],
-    rating: 4.9,
-    reviews: 203
-  },
-  {
-    id: 3,
-    name: "Diamond Watch",
-    price: "CAD$ 15,600.00",
-    originalPrice: "CAD$ 19,500.00",
-    image: "placeholder",
-    category: "Watches",
-    description: "Luxury diamond-encrusted timepiece with Swiss movement.",
-    features: ["Swiss Movement", "Real Diamonds", "Water Proof", "2 Year Warranty"],
-    rating: 5.0,
-    reviews: 89
-  },
-  {
-    id: 4,
-    name: "Emerald Earrings",
-    price: "CAD$ 8,450.00",
-    originalPrice: null,
-    image: "placeholder",
-    category: "Earrings",
-    description: "Stunning emerald earrings with brilliant cut stones.",
-    features: ["Natural Emerald", "Sterling Silver", "Hypoallergenic", "Elegant Design"],
-    rating: 4.7,
-    reviews: 124
-  },
-  {
-    id: 5,
-    name: "Diamond Tennis Bracelet",
-    price: "CAD$ 10,660.00",
-    originalPrice: "CAD$ 12,740.00",
-    image: "placeholder",
-    category: "Bracelets",
-    description: "Classic tennis bracelet with brilliant diamonds.",
-    features: ["Diamond Stones", "Flexible Design", "Secure Clasp", "Luxury Box"],
-    rating: 4.8,
-    reviews: 178
-  },
-  {
-    id: 6,
-    name: "Pearl Necklace",
-    price: "CAD$ 4,940.00",
-    originalPrice: null,
-    image: "placeholder",
-    category: "Necklaces",
-    description: "Elegant freshwater pearl necklace with gold clasp.",
-    features: ["Freshwater Pearls", "Gold Clasp", "Multiple Lengths", "Velvet Case"],
-    rating: 4.6,
-    reviews: 97
-  },
-  {
-    id: 7,
-    name: "Sapphire Ring",
-    price: "CAD$ 7,800.00",
-    originalPrice: "CAD$ 9,100.00",
-    image: "placeholder",
-    category: "Rings",
-    description: "Royal blue sapphire ring with white gold setting.",
-    features: ["Natural Sapphire", "White Gold", "Expert Cut", "Certificate"],
-    rating: 4.9,
-    reviews: 145
-  },
-  {
-    id: 8,
-    name: "Gold Pendant",
-    price: "CAD$ 3,900.00",
-    originalPrice: null,
-    image: "placeholder",
-    category: "Necklaces",
-    description: "Minimalist gold pendant perfect for everyday wear.",
-    features: ["14k Gold", "Minimalist Design", "Durable Chain", "Gift Ready"],
-    rating: 4.5,
-    reviews: 76
   },
   {
     id: 9,

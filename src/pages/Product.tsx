@@ -233,8 +233,8 @@ const Product = () => {
   const handleAddToWishlist = () => {
     if (!product) return;
     
-    toast.success("Adicionado à lista de desejos!", {
-      description: `${product.name} foi salvo na sua lista de desejos.`,
+    toast.success("Added to wishlist!", {
+      description: `${product.name} has been saved to your wishlist.`,
     });
   };
 

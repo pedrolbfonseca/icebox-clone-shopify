@@ -177,16 +177,16 @@ const Category = () => {
     e.preventDefault();
     e.stopPropagation();
     addToCart(product);
-    toast.success("Produto adicionado ao carrinho!", {
-      description: `${product.name} foi adicionado ao seu carrinho.`,
+    toast.success("Product added to cart!", {
+      description: `${product.name} has been added to your cart.`,
     });
   };
 
   const handleAddToWishlist = (product: any, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    toast.success("Adicionado à lista de desejos!", {
-      description: `${product.name} foi salvo na sua lista de desejos.`,
+    toast.success("Added to wishlist!", {
+      description: `${product.name} has been saved to your wishlist.`,
     });
   };
 

@@ -11,17 +11,17 @@ const CartDropdown = () => {
 
   const handleCheckout = () => {
     if (items.length === 0) {
-      toast.error("Seu carrinho está vazio!");
+      toast.error("Your cart is empty!");
       return;
     }
     
-    toast.success("Redirecionando para o checkout...");
+    toast.success("Redirecting to checkout...");
     setIsOpen(false);
   };
 
   const handleClearCart = () => {
     clearCart();
-    toast.success("Carrinho limpo!");
+    toast.success("Cart cleared!");
   };
 
   const formatPrice = (price: number) => {
@@ -56,7 +56,7 @@ const CartDropdown = () => {
           <Card className="absolute right-0 top-full mt-2 w-80 z-50 bg-background border border-border shadow-lg">
             <div className="p-4">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-foreground">Seu Carrinho</h3>
+                <h3 className="font-semibold text-foreground">Your Cart</h3>
                 <Button
                   variant="ghost"
                   size="icon"
@@ -70,7 +70,7 @@ const CartDropdown = () => {
               {items.length === 0 ? (
                 <div className="text-center py-8">
                   <ShoppingBag className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground">Seu carrinho está vazio</p>
+                  <p className="text-muted-foreground">Your cart is empty</p>
                 </div>
               ) : (
                 <>
@@ -97,7 +97,7 @@ const CartDropdown = () => {
                           </p>
                           <p className="text-xs text-muted-foreground">
                             {item.price}
-                            {item.selectedSize && ` • Tamanho ${item.selectedSize}`}
+                            {item.selectedSize && ` • Size ${item.selectedSize}`}
                           </p>
                         </div>
 
@@ -147,14 +147,14 @@ const CartDropdown = () => {
                         onClick={handleCheckout}
                         className="w-full bg-primary hover:bg-primary/90"
                       >
-                        Finalizar Compra
+                        Checkout
                       </Button>
                       <Button 
                         variant="outline" 
                         onClick={handleClearCart}
                         className="w-full"
                       >
-                        Limpar Carrinho
+                        Clear Cart
                       </Button>
                     </div>
                   </div>

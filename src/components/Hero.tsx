@@ -7,8 +7,8 @@ const Hero = () => {
     <section className="relative min-h-screen bg-background">
       <div className="absolute inset-0 bg-gradient-dark"></div>
       
-      <div className="relative container mx-auto px-4 py-16">
-        <div className="grid lg:grid-cols-2 gap-8 min-h-[80vh] items-center">
+      <div className="relative container mx-auto px-4 py-8">
+        <div className="grid lg:grid-cols-2 gap-4 min-h-[85vh] items-center">
           
           {/* Men's Section */}
           <Link to="/category/men" className="relative group cursor-pointer overflow-hidden rounded-lg">
@@ -91,8 +91,8 @@ const Hero = () => {
         </div>
 
         {/* Bottom scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
+        <div className="flex justify-center mt-8 mb-4">
+          <div className="w-6 h-10 border-2 border-primary/60 rounded-full flex justify-center animate-bounce">
             <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>

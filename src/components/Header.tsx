@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { useState } from "react";
-import BuyButton from "./BuyButton";
 import LogoProcessor from "./LogoProcessor";
 
 const Header = () => {
@@ -113,7 +112,6 @@ const Header = () => {
                 </Button>
               </Link>
             )}
-            <BuyButton />
           </div>
         </div>
 

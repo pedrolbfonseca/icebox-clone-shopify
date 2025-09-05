@@ -1333,6 +1333,22 @@ const Product = () => {
               </div>
             ) : product.id === 14 ? (
               <div className="space-y-4">
+                {/* Size Options */}
+                <div>
+                  <h3 className="font-semibold text-foreground mb-3">Size</h3>
+                  <Select value={selectedWidth} onValueChange={setSelectedWidth}>
+                    <SelectTrigger className="w-full bg-background border border-border">
+                      <SelectValue placeholder="Select size" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-background border border-border z-50">
+                      <SelectItem value="8mm">8mm</SelectItem>
+                      <SelectItem value="12mm">12mm</SelectItem>
+                      <SelectItem value="15mm">15mm</SelectItem>
+                      <SelectItem value="20mm">20mm</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
                 <div className="w-full">
                   <div id='product-component-1757112265815' className="w-full"></div>
                 </div>

@@ -27,11 +27,14 @@ declare global {
 const products = [
   {
     id: 11,
-    name: "Custom Letter and Numbers Pendant",
+    name: "Custom Fire Letter and Numbers Pendant",
     price: "From CAD$ 75.00",
     originalPrice: null,
-    image: "/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png",
+    image: "/lovable-uploads/f021de8d-3d13-4394-a972-d6357eb03ca0.png",
     images: [
+      "/lovable-uploads/f021de8d-3d13-4394-a972-d6357eb03ca0.png",
+      "/lovable-uploads/4f71ccb2-6015-4751-a18f-d117225fc4f0.png",
+      "/lovable-uploads/64b94dbd-78ff-4f2c-a6f0-445f0e9d28ca.png",
       "/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png"
     ],
     category: "Pendants",

@@ -12,11 +12,14 @@ import { toast } from "sonner";
 const products = [
   {
     id: 11,
-    name: "Custom Letter and Numbers Pendant",
+    name: "Custom Fire Letter and Numbers Pendant",
     price: "From CAD$ 75.00",
     originalPrice: null,
-    image: "/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png",
+    image: "/lovable-uploads/f021de8d-3d13-4394-a972-d6357eb03ca0.png",
     images: [
+      "/lovable-uploads/f021de8d-3d13-4394-a972-d6357eb03ca0.png",
+      "/lovable-uploads/4f71ccb2-6015-4751-a18f-d117225fc4f0.png",
+      "/lovable-uploads/64b94dbd-78ff-4f2c-a6f0-445f0e9d28ca.png",
       "/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png"
     ],
     category: "Pendants",
@@ -313,7 +316,7 @@ const Category = () => {
                 <Card className="group cursor-pointer overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300">
                   <div className="relative overflow-hidden">
                     <div className="aspect-square bg-muted flex items-center justify-center relative">
-                      {(product.id === 9 || product.id === 10) ? (
+                      {(product.id === 9 || product.id === 10 || product.id === 11) ? (
                         <img 
                           src={product.image} 
                           alt={product.name}
@@ -325,7 +328,7 @@ const Category = () => {
                           }}
                         />
                       ) : null}
-                      <div className={`${(product.id === 9 || product.id === 10) ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 items-center justify-center`}>
+                      <div className={`${(product.id === 9 || product.id === 10 || product.id === 11) ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 items-center justify-center`}>
                         <span className="text-4xl font-bold text-primary/50">
                           {product.category.charAt(0)}
                         </span>

@@ -40,7 +40,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link to="/">
               <LogoProcessor
-                logoUrl="/lovable-uploads/00dc269d-705c-478b-8102-d7baf43834e0.png"
+                logoUrl="/lovable-uploads/a308769a-142b-4c36-afc4-0ce64ae89209.png"
                 alt="Hype Company Logo"
                 className="h-20 w-auto object-contain filter brightness-100 contrast-125"
                 loading="eager"

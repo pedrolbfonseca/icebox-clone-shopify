@@ -6,6 +6,7 @@ import TrustSignals from "@/components/TrustSignals";
 import Testimonials from "@/components/Testimonials";
 import AboutUs from "@/components/AboutUs";
 import Footer from "@/components/Footer";
+import ChainSizeGuide from "@/components/ChainSizeGuide";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <TrustSignals />
       <Categories />
       <ProductGrid />
+      <ChainSizeGuide />
       <AboutUs />
       <Testimonials />
       <Footer />

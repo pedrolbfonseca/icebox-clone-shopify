@@ -9,6 +9,30 @@ import { toast } from "sonner";
 
 const products = [
   {
+    id: 11,
+    name: "Custom Letter and Numbers Pendant",
+    price: "From CAD$ 75.00",
+    originalPrice: null,
+    image: "/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png",
+    images: [
+      "/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png"
+    ],
+    category: "Pendants",
+    description: "Personalize your style with our custom letter and number pendant. Choose from 1 to 6 letters or numbers to create your unique piece. Perfect for names, initials, or meaningful dates.",
+    features: ["Custom Personalization", "14K Gold Plated", "Premium Quality", "Fast Processing"],
+    rating: 4.9,
+    reviews: 234,
+    customizable: true,
+    pricingOptions: [
+      { letters: 1, price: "CAD$ 75.00", value: 75 },
+      { letters: 2, price: "CAD$ 150.00", value: 150 },
+      { letters: 3, price: "CAD$ 180.00", value: 180 },
+      { letters: 4, price: "CAD$ 220.00", value: 220 },
+      { letters: 5, price: "CAD$ 240.00", value: 240 },
+      { letters: 6, price: "CAD$ 260.00", value: 260 }
+    ]
+  },
+  {
     id: 9,
     name: "Chrome Hearts Cross Bracelet",
     price: "CAD$ 63.00",

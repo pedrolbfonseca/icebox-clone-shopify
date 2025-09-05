@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 import { Star, ShoppingBag, Heart, Share2, ArrowLeft, Truck, Shield, RefreshCw, Award } from "lucide-react";
 import { toast } from "sonner";
 import Header from "@/components/Header";
@@ -23,6 +25,38 @@ declare global {
 }
 
 const products = [
+  {
+    id: 11,
+    name: "Custom Letter and Numbers Pendant",
+    price: "From CAD$ 75.00",
+    originalPrice: null,
+    image: "/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png",
+    images: [
+      "/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png"
+    ],
+    category: "Pendants",
+    description: "Personalize your style with our custom letter and number pendant. Choose from 1 to 6 letters or numbers to create your unique piece. Perfect for names, initials, or meaningful dates. Each pendant is carefully crafted with premium materials and attention to detail.",
+    features: ["Custom Personalization", "14K Gold Plated", "Premium Quality", "Fast Processing", "Gift Box Included"],
+    rating: 4.9,
+    reviews: 234,
+    inStock: true,
+    customizable: true,
+    pricingOptions: [
+      { letters: 1, price: "CAD$ 75.00", value: 75 },
+      { letters: 2, price: "CAD$ 150.00", value: 150 },
+      { letters: 3, price: "CAD$ 180.00", value: 180 },
+      { letters: 4, price: "CAD$ 220.00", value: 220 },
+      { letters: 5, price: "CAD$ 240.00", value: 240 },
+      { letters: 6, price: "CAD$ 260.00", value: 260 }
+    ],
+    specifications: {
+      "Material": "14K Gold Plated Stainless Steel",
+      "Personalization": "1-6 Letters/Numbers",
+      "Chain": "Included (18 inches)",
+      "Processing": "3-5 Business Days",
+      "Shipping": "Fast Delivery"
+    }
+  },
   {
     id: 1,
     name: "18k Gold Ring",
@@ -243,6 +277,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("7");
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [selectedPricingOption, setSelectedPricingOption] = useState(0);
   
   const product = products.find(p => p.id === parseInt(id || "0"));
 
@@ -264,15 +299,22 @@ const Product = () => {
   const handleAddToCart = () => {
     if (!product) return;
     
-    const productWithSize = {
-      ...product,
-      selectedSize: product.category === "Rings" ? selectedSize : undefined
-    };
+    let productToAdd: any = { ...product };
     
-    addToCart(productWithSize, quantity, product.category === "Rings" ? selectedSize : undefined);
+    // Handle custom pendant pricing
+    if (product.customizable && (product as any).pricingOptions) {
+      const selectedOption = (product as any).pricingOptions[selectedPricingOption];
+      productToAdd.price = selectedOption.price;
+      productToAdd.selectedLetters = selectedOption.letters;
+    }
     
-    toast.success("Adicionado ao carrinho!", {
-      description: `${product.name} foi adicionado ao seu carrinho.`,
+    // Handle ring sizes
+    const selectedSizeForCart = product.category === "Rings" ? selectedSize : undefined;
+    
+    addToCart(productToAdd, quantity, selectedSizeForCart);
+    
+    toast.success("Added to cart!", {
+      description: `${product.name} has been added to your cart.`,
     });
   };
 
@@ -672,7 +714,11 @@ const Product = () => {
               
               {/* Price */}
               <div className="flex items-center space-x-4 mb-6">
-                <span className="text-3xl font-bold text-foreground">{product.price}</span>
+                <span className="text-3xl font-bold text-foreground">
+                  {product.customizable && (product as any).pricingOptions 
+                    ? (product as any).pricingOptions[selectedPricingOption].price 
+                    : product.price}
+                </span>
                 {product.originalPrice && (
                   <span className="text-xl text-muted-foreground line-through">
                     {product.originalPrice}
@@ -705,6 +751,34 @@ const Product = () => {
                 ))}
               </div>
             </div>
+
+            {/* Custom Pendant Pricing Options */}
+            {product.customizable && (product as any).pricingOptions && (
+              <div>
+                <h3 className="font-semibold text-foreground mb-3">Select Number of Letters</h3>
+                <RadioGroup 
+                  value={selectedPricingOption.toString()} 
+                  onValueChange={(value) => setSelectedPricingOption(parseInt(value))}
+                  className="space-y-3"
+                >
+                  {(product as any).pricingOptions.map((option: any, index: number) => (
+                    <div key={index} className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors">
+                      <RadioGroupItem value={index.toString()} id={`option-${index}`} />
+                      <Label htmlFor={`option-${index}`} className="flex-1 cursor-pointer">
+                        <div className="flex justify-between items-center">
+                          <span className="font-medium">
+                            {option.letters} Letter{option.letters > 1 ? 's' : ''}
+                          </span>
+                          <span className="text-primary font-bold">
+                            {option.price}
+                          </span>
+                        </div>
+                      </Label>
+                    </div>
+                  ))}
+                </RadioGroup>
+              </div>
+            )}
 
             {/* Size Selection (for rings) */}
             {product.category === "Rings" && (

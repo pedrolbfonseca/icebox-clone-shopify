@@ -30,12 +30,10 @@ const products = [
     name: "Custom Fire Letter and Numbers Pendant",
     price: "From CAD$ 75.00",
     originalPrice: null,
-    image: "/lovable-uploads/f021de8d-3d13-4394-a972-d6357eb03ca0.png",
+    image: "/lovable-uploads/64b94dbd-78ff-4f2c-a6f0-445f0e9d28ca.png",
     images: [
-      "/lovable-uploads/f021de8d-3d13-4394-a972-d6357eb03ca0.png",
-      "/lovable-uploads/4f71ccb2-6015-4751-a18f-d117225fc4f0.png",
       "/lovable-uploads/64b94dbd-78ff-4f2c-a6f0-445f0e9d28ca.png",
-      "/lovable-uploads/59f78995-d532-4902-8baf-fa05cb481b4e.png"
+      "/lovable-uploads/f021de8d-3d13-4394-a972-d6357eb03ca0.png"
     ],
     category: "Pendants",
     description: "Personalize your style with our custom letter and number pendant. Choose from 1 to 6 letters or numbers to create your unique piece. Perfect for names, initials, or meaningful dates. Each pendant is carefully crafted with premium materials and attention to detail.",

@@ -366,7 +366,7 @@ const Category = () => {
                     <div className="text-sm text-primary font-medium mb-2">
                       {product.category}
                     </div>
-                    <h3 className="font-semibold text-card-foreground mb-3 group-hover:text-primary transition-colors">
+                    <h3 className="font-semibold text-card-foreground mb-3 group-hover:text-primary transition-colors line-clamp-1 text-ellipsis overflow-hidden whitespace-nowrap">
                       {product.name}
                     </h3>
                     

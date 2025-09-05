@@ -30,12 +30,14 @@ const products = [
     name: "Solid Silver Ice Out Cuban Link Chain",
     price: "From CAD$ 165.00",
     originalPrice: null,
-    image: "/lovable-uploads/e09b9a1b-639f-47b7-b9fa-6e64a5bf82a9.png",
+    image: "/lovable-uploads/390621c5-3371-4bde-96e1-a473c29eefa5.png",
     images: [
-      "/lovable-uploads/e09b9a1b-639f-47b7-b9fa-6e64a5bf82a9.png",
-      "/lovable-uploads/6ff1b99b-0309-470c-856d-a475e0f4c084.png",
-      "/lovable-uploads/ff31b6a2-6ced-49f2-98a0-727f38feafcb.png",
-      "/lovable-uploads/193d97c9-6b10-4005-9502-0aa61a4abd68.png"
+      "/lovable-uploads/390621c5-3371-4bde-96e1-a473c29eefa5.png",
+      "/lovable-uploads/66a48e10-05ee-408d-aec4-877f2c471f1d.png",
+      "/lovable-uploads/e03c11d5-67a6-4ac0-845c-3ac4386d1d5d.png",
+      "/lovable-uploads/04cf6ff5-c2d7-4c9b-be00-a10e45200d6f.png",
+      "/lovable-uploads/09ee7ef8-2221-4d72-85ec-438569a1f543.png",
+      "/lovable-uploads/762901f9-e813-492c-a058-5d111ebfc67f.png"
     ],
     category: "Chains",
     description: "Premium solid silver ice out Cuban link chain with full crystal setting. Features precision-crafted links with maximum brilliance and luxury finish. Available in multiple lengths for perfect fit. This statement piece combines luxurious design with exceptional craftsmanship for the ultimate in sophisticated jewelry.",

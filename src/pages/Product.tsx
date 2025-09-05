@@ -26,6 +26,40 @@ declare global {
 
 const products = [
   {
+    id: 13,
+    name: "Solid Silver Ice Out Cuban Link Chain",
+    price: "From CAD$ 165.00",
+    originalPrice: null,
+    image: "/lovable-uploads/e09b9a1b-639f-47b7-b9fa-6e64a5bf82a9.png",
+    images: [
+      "/lovable-uploads/e09b9a1b-639f-47b7-b9fa-6e64a5bf82a9.png",
+      "/lovable-uploads/6ff1b99b-0309-470c-856d-a475e0f4c084.png",
+      "/lovable-uploads/ff31b6a2-6ced-49f2-98a0-727f38feafcb.png",
+      "/lovable-uploads/193d97c9-6b10-4005-9502-0aa61a4abd68.png"
+    ],
+    category: "Chains",
+    description: "Premium solid silver ice out Cuban link chain with full crystal setting. Features precision-crafted links with maximum brilliance and luxury finish. Available in multiple lengths for perfect fit. This statement piece combines luxurious design with exceptional craftsmanship for the ultimate in sophisticated jewelry.",
+    features: ["Solid Silver Construction", "Full Ice Out Design", "Premium Crystal Setting", "Multiple Lengths Available", "Luxury Gift Box", "Tarnish Resistant"],
+    rating: 4.9,
+    reviews: 142,
+    inStock: true,
+    customizable: true,
+    pricingOptions: [
+      { size: "16 inch", price: "CAD$ 165.00", value: 165.00 },
+      { size: "18 inch", price: "CAD$ 200.00", value: 200.00 },
+      { size: "20 inch", price: "CAD$ 235.00", value: 235.00 },
+      { size: "22 inch", price: "CAD$ 270.00", value: 270.00 }
+    ],
+    specifications: {
+      "Material": "Solid Silver with Crystal Setting",
+      "Available Lengths": "16, 18, 20, 22 inches",
+      "Width": "12mm",
+      "Clasp": "Secure Lobster Claw",
+      "Processing": "3-5 Business Days",
+      "Shipping": "Fast Delivery with Tracking"
+    }
+  },
+  {
     id: 12,
     name: "Solid Silver Ice Out Cuban Link Bracelet",
     price: "From CAD$ 97.30",
@@ -847,7 +881,7 @@ const Product = () => {
           {/* Product Image */}
           <div className="space-y-4">
             <Card className="aspect-square bg-muted flex items-center justify-center overflow-hidden">
-              {(product.id === 9 || product.id === 10 || product.id === 11) && product.images ? (
+              {(product.id === 9 || product.id === 10 || product.id === 11 || product.id === 12 || product.id === 13) && product.images ? (
                 <img 
                   src={product.images[selectedImageIndex]} 
                   alt={product.name}
@@ -859,7 +893,7 @@ const Product = () => {
                   }}
                 />
               ) : null}
-              <div className={`${(product.id === 9 || product.id === 10 || product.id === 11) ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} w-full h-full items-center justify-center`}>
+              <div className={`${(product.id === 9 || product.id === 10 || product.id === 11 || product.id === 12 || product.id === 13) ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} w-full h-full items-center justify-center`}>
                 <span className="text-8xl font-bold text-primary/30">
                   {product.category.charAt(0)}
                 </span>
@@ -867,7 +901,7 @@ const Product = () => {
             </Card>
             
             {/* Thumbnail Images */}
-            {(product.id === 9 || product.id === 10 || product.id === 11) && product.images && (
+            {(product.id === 9 || product.id === 10 || product.id === 11 || product.id === 12 || product.id === 13) && product.images && (
               <div className="grid grid-cols-3 gap-2">
                 {product.images.map((image, index) => (
                   <Card 
@@ -952,20 +986,22 @@ const Product = () => {
             {/* Custom Pendant Pricing Options */}
             {product.customizable && (product as any).pricingOptions && (
               <div>
-                <h3 className="font-semibold text-foreground mb-3">Select Number of Letters</h3>
+                <h3 className="font-semibold text-foreground mb-3">
+                  {product.id === 11 ? 'Select Number of Letters' : 'Select Size'}
+                </h3>
                 <Select 
                   value={selectedPricingOption.toString()} 
                   onValueChange={(value) => setSelectedPricingOption(parseInt(value))}
                 >
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Choose number of letters" />
+                    <SelectValue placeholder={product.id === 11 ? 'Choose number of letters' : 'Choose size'} />
                   </SelectTrigger>
                   <SelectContent className="bg-background border border-border z-50">
                     {(product as any).pricingOptions.map((option: any, index: number) => (
                       <SelectItem key={index} value={index.toString()}>
                         <div className="flex justify-between items-center w-full">
                           <span className="font-medium">
-                            {option.letters} Letter{option.letters > 1 ? 's' : ''}
+                            {option.letters ? `${option.letters} Letter${option.letters > 1 ? 's' : ''}` : option.size}
                           </span>
                           <span className="text-primary font-bold ml-4">
                             {option.price}

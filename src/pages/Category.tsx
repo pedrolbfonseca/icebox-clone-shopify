@@ -11,6 +11,31 @@ import { toast } from "sonner";
 
 const products = [
   {
+    id: 13,
+    name: "Solid Silver Ice Out Cuban Link Chain",
+    price: "From CAD$ 165.00",
+    originalPrice: null,
+    image: "/lovable-uploads/e09b9a1b-639f-47b7-b9fa-6e64a5bf82a9.png",
+    images: [
+      "/lovable-uploads/e09b9a1b-639f-47b7-b9fa-6e64a5bf82a9.png",
+      "/lovable-uploads/6ff1b99b-0309-470c-856d-a475e0f4c084.png",
+      "/lovable-uploads/ff31b6a2-6ced-49f2-98a0-727f38feafcb.png",
+      "/lovable-uploads/193d97c9-6b10-4005-9502-0aa61a4abd68.png"
+    ],
+    category: "Chains",
+    description: "Premium solid silver ice out Cuban link chain with full crystal setting. Features precision-crafted links with maximum brilliance and luxury finish. Available in multiple lengths for perfect fit.",
+    features: ["Solid Silver Construction", "Full Ice Out Design", "Premium Crystal Setting", "Multiple Lengths Available"],
+    rating: 4.9,
+    reviews: 142,
+    customizable: true,
+    pricingOptions: [
+      { size: "16 inch", price: "CAD$ 165.00", value: 165.00 },
+      { size: "18 inch", price: "CAD$ 200.00", value: 200.00 },
+      { size: "20 inch", price: "CAD$ 235.00", value: 235.00 },
+      { size: "22 inch", price: "CAD$ 270.00", value: 270.00 }
+    ]
+  },
+  {
     id: 12,
     name: "Solid Silver Ice Out Cuban Link Bracelet",
     price: "From CAD$ 97.30",
@@ -337,7 +362,7 @@ const Category = () => {
                 <Card className="group cursor-pointer overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300">
                   <div className="relative overflow-hidden">
                     <div className="aspect-square bg-muted flex items-center justify-center relative">
-                      {(product.id === 9 || product.id === 10 || product.id === 11) ? (
+                      {(product.id === 9 || product.id === 10 || product.id === 11 || product.id === 12 || product.id === 13) ? (
                         <img 
                           src={product.image} 
                           alt={product.name}
@@ -349,7 +374,7 @@ const Category = () => {
                           }}
                         />
                       ) : null}
-                      <div className={`${(product.id === 9 || product.id === 10 || product.id === 11) ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 items-center justify-center`}>
+                      <div className={`${(product.id === 9 || product.id === 10 || product.id === 11 || product.id === 12 || product.id === 13) ? 'hidden fallback-placeholder' : 'flex fallback-placeholder'} absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 items-center justify-center`}>
                         <span className="text-4xl font-bold text-primary/50">
                           {product.category.charAt(0)}
                         </span>

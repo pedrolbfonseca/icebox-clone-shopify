@@ -1,4 +1,4 @@
-import chainSizeGuideImage from "@/assets/chain-size-guide.jpg";
+const chainSizeGuideImage = "/lovable-uploads/b318585f-d917-4988-9fcf-71c818985a69.png";
 
 const ChainSizeGuide = () => {
   const chainSizes = [

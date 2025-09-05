@@ -13,10 +13,10 @@ const products = [
     name: "Solid Silver Ice Out Cuban Link Chain",
     price: "From CAD$ 165.00",
     originalPrice: null,
-    image: "/lovable-uploads/390621c5-3371-4bde-96e1-a473c29eefa5.png",
+    image: "/lovable-uploads/66a48e10-05ee-408d-aec4-877f2c471f1d.png",
     images: [
-      "/lovable-uploads/390621c5-3371-4bde-96e1-a473c29eefa5.png",
       "/lovable-uploads/66a48e10-05ee-408d-aec4-877f2c471f1d.png",
+      "/lovable-uploads/390621c5-3371-4bde-96e1-a473c29eefa5.png",
       "/lovable-uploads/e03c11d5-67a6-4ac0-845c-3ac4386d1d5d.png",
       "/lovable-uploads/04cf6ff5-c2d7-4c9b-be00-a10e45200d6f.png",
       "/lovable-uploads/09ee7ef8-2221-4d72-85ec-438569a1f543.png",

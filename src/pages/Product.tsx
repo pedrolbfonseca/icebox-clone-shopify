@@ -1001,7 +1001,7 @@ const Product = () => {
                       <SelectItem key={index} value={index.toString()}>
                         <div className="flex justify-between items-center w-full">
                           <span className="font-medium">
-                            {option.letters ? `${option.letters} Letter${option.letters > 1 ? 's' : ''}` : option.size}
+                            {product.id === 11 ? `${option.letters} Letter${option.letters > 1 ? 's' : ''}` : option.size}
                           </span>
                           <span className="text-primary font-bold ml-4">
                             {option.price}

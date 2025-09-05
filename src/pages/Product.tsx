@@ -26,6 +26,51 @@ declare global {
 
 const products = [
   {
+    id: 14,
+    name: "Cuban Bracelet Solid w/ Bust Down Locker",
+    price: "From CAD$ 145.00",
+    originalPrice: null,
+    image: "/src/assets/cuban-bracelet-silver-1.png",
+    images: [
+      "/src/assets/cuban-bracelet-silver-1.png",
+      "/src/assets/cuban-bracelet-gold-1.png",
+      "/src/assets/cuban-bracelet-silver-2.png",
+      "/src/assets/cuban-bracelet-gold-2.png"
+    ],
+    category: "Bracelets",
+    description: "Premium Cuban bracelet with solid construction and bust down locker design. Features full ice out setting with maximum brilliance and luxury finish. Available in multiple widths and lengths for perfect fit. Choose between Silver and Gold colors. This statement piece combines sophisticated design with exceptional craftsmanship.",
+    features: ["Solid Construction", "Bust Down Locker Design", "Full Ice Out Setting", "Multiple Widths & Lengths", "Silver & Gold Colors", "Luxury Gift Box"],
+    rating: 4.9,
+    reviews: 89,
+    inStock: true,
+    customizable: true,
+    colorOptions: ["Silver", "Gold"],
+    widthOptions: ["8mm", "12mm", "15mm", "20mm"],
+    pricingOptions: [
+      { size: "7in x 8mm", price: "CAD$ 145.00", value: 145.00 },
+      { size: "7in x 12mm", price: "CAD$ 165.00", value: 165.00 },
+      { size: "7in x 15mm", price: "CAD$ 185.00", value: 185.00 },
+      { size: "7in x 20mm", price: "CAD$ 215.00", value: 215.00 },
+      { size: "8in x 8mm", price: "CAD$ 155.00", value: 155.00 },
+      { size: "8in x 12mm", price: "CAD$ 175.00", value: 175.00 },
+      { size: "8in x 15mm", price: "CAD$ 195.00", value: 195.00 },
+      { size: "8in x 20mm", price: "CAD$ 225.00", value: 225.00 },
+      { size: "9in x 8mm", price: "CAD$ 165.00", value: 165.00 },
+      { size: "9in x 12mm", price: "CAD$ 185.00", value: 185.00 },
+      { size: "9in x 15mm", price: "CAD$ 205.00", value: 205.00 },
+      { size: "9in x 20mm", price: "CAD$ 235.00", value: 235.00 }
+    ],
+    specifications: {
+      "Material": "Solid Metal with Ice Out Setting",
+      "Available Colors": "Silver, Gold",
+      "Available Widths": "8mm, 12mm, 15mm, 20mm",
+      "Available Lengths": "7, 8, 9 inches",
+      "Clasp": "Secure Bust Down Locker",
+      "Processing": "3-5 Business Days",
+      "Shipping": "Fast Delivery with Tracking"
+    }
+  },
+  {
     id: 13,
     name: "Solid Silver Ice Out Cuban Link Chain",
     price: "From CAD$ 165.00",

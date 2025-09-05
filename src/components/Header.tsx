@@ -56,7 +56,7 @@ const Header = () => {
             <Link to="/category/rings" className="text-foreground hover:text-primary transition-colors">Rings</Link>
             <Link to="/category/chains" className="text-foreground hover:text-primary transition-colors">Chains</Link>
             <Link to="/category/watches" className="text-foreground hover:text-primary transition-colors">Watches</Link>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">About Us</a>
+            <Link to="/category/pendants" className="text-foreground hover:text-primary transition-colors">Pendants</Link>
             <a href="#outlet" className="text-foreground hover:text-primary transition-colors">Outlet</a>
           </nav>
 

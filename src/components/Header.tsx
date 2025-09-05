@@ -27,7 +27,7 @@ const Header = () => {
           <div className="hidden md:block flex-1 overflow-hidden">
             <div className="whitespace-nowrap animate-scroll">
               <span className="inline-block px-8">
-                Free shipping on orders over CAD$ 500 • Free shipping on orders over CAD$ 500 • Free shipping on orders over CAD$ 500 • Free shipping on orders over CAD$ 500
+                • Free shipping on orders over CAD$ 500 US & CA • Free shipping on orders over CAD$ 500 US & CA • Free shipping on orders over CAD$ 500 US & CA • Free shipping on orders over CAD$ 500 US & CA
               </span>
             </div>
           </div>

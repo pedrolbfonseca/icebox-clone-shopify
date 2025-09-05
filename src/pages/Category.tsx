@@ -12,7 +12,7 @@ import { toast } from "sonner";
 const products = [
   {
     id: 11,
-    name: "Custom Fire Letter and Numbers Pendant",
+    name: "Custom Letter and Numbers Pendant",
     price: "From CAD$ 75.00",
     originalPrice: null,
     image: "/lovable-uploads/64b94dbd-78ff-4f2c-a6f0-445f0e9d28ca.png",

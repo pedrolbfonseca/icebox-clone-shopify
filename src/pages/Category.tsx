@@ -264,7 +264,11 @@ const Category = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {sortedProducts.map((product) => (
-              <Link key={product.id} to={`/product/${product.id}`}>
+              <Link 
+                key={product.id} 
+                to={`/product/${product.id}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
                 <Card className="group cursor-pointer overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300">
                   <div className="relative overflow-hidden">
                     <div className="aspect-square bg-muted flex items-center justify-center relative">

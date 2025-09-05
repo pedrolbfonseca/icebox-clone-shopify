@@ -37,7 +37,7 @@ const Header = () => {
         {/* Main header */}
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center mr-8 lg:mr-12">
             <Link to="/">
               <LogoProcessor
                 logoUrl="/lovable-uploads/a308769a-142b-4c36-afc4-0ce64ae89209.png"

@@ -26,6 +26,38 @@ declare global {
 
 const products = [
   {
+    id: 12,
+    name: "Solid Silver Ice Out Cuban Link Bracelet",
+    price: "From CAD$ 97.30",
+    originalPrice: null,
+    image: "/lovable-uploads/e09b9a1b-639f-47b7-b9fa-6e64a5bf82a9.png",
+    images: [
+      "/lovable-uploads/e09b9a1b-639f-47b7-b9fa-6e64a5bf82a9.png",
+      "/lovable-uploads/6ff1b99b-0309-470c-856d-a475e0f4c084.png",
+      "/lovable-uploads/ff31b6a2-6ced-49f2-98a0-727f38feafcb.png",
+      "/lovable-uploads/193d97c9-6b10-4005-9502-0aa61a4abd68.png"
+    ],
+    category: "Bracelets",
+    description: "Premium solid silver ice out Cuban link bracelet with full crystal setting. Features precision-crafted links with maximum brilliance and luxury finish. Available in multiple sizes for perfect fit. This statement piece combines luxurious design with exceptional craftsmanship for the ultimate in sophisticated jewelry.",
+    features: ["Solid Silver Construction", "Full Ice Out Design", "Premium Crystal Setting", "Multiple Sizes Available", "Luxury Gift Box", "Tarnish Resistant"],
+    rating: 4.9,
+    reviews: 156,
+    inStock: true,
+    customizable: true,
+    pricingOptions: [
+      { size: "7 inch", price: "CAD$ 97.30", value: 97.30 },
+      { size: "8 inch", price: "CAD$ 104.00", value: 104.00 }
+    ],
+    specifications: {
+      "Material": "Solid Silver with Crystal Setting",
+      "Available Sizes": "7 inch, 8 inch",
+      "Width": "10mm",
+      "Clasp": "Secure Lobster Claw",
+      "Processing": "3-5 Business Days",
+      "Shipping": "Fast Delivery with Tracking"
+    }
+  },
+  {
     id: 11,
     name: "Custom Letter and Numbers Pendant",
     price: "From CAD$ 75.00",

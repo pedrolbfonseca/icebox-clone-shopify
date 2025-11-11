@@ -33,18 +33,13 @@ const Header = () => {
     <header className="bg-background border-b border-border">
       <div className="container mx-auto px-4">
         {/* Top bar */}
-        <div className="flex items-center justify-between py-2 text-sm text-muted-foreground">
-          <div className="hidden md:block flex-1 overflow-hidden">
+        <div className="flex items-center justify-center py-2 text-sm text-muted-foreground">
+          <div className="hidden md:block overflow-hidden">
             <div className="whitespace-nowrap animate-scroll">
               <span className="inline-block px-8">
                 • Free shipping on orders over CAD$ 500 US & CA • Free shipping on orders over CAD$ 500 US & CA • Free shipping on orders over CAD$ 500 US & CA • Free shipping on orders over CAD$ 500 US & CA
               </span>
             </div>
-          </div>
-          <div className="flex items-center space-x-4 flex-shrink-0">
-            <span>Contact: +1 (437) 473-5348</span>
-            <span>•</span>
-            <span>24/7 Support</span>
           </div>
         </div>
 

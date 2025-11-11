@@ -119,4 +119,14 @@ All colors MUST be HSL.
   .animate-scroll {
     animation: scroll 20s linear infinite;
   }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

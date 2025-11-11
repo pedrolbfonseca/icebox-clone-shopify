@@ -204,14 +204,16 @@ const ProductGrid = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Mobile: Horizontal scroll, Desktop: Grid */}
+        <div className="flex md:grid overflow-x-auto md:overflow-x-visible md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 snap-x snap-mandatory md:snap-none pb-4 md:pb-0 -mx-4 px-4 md:mx-0 scrollbar-hide">
           {products.map((product) => (
             <Link 
               key={product.id} 
               to={`/product/${product.id}`}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex-shrink-0 w-[280px] md:w-auto snap-start"
             >
-              <Card className="group cursor-pointer overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300">
+              <Card className="group cursor-pointer overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300 h-full">
                 <div className="relative overflow-hidden">
                   <div className="aspect-square bg-muted flex items-center justify-center relative">
                     <img 

@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-background">
+    <section className="relative bg-background pb-0">
       <div className="absolute inset-0 bg-gradient-dark"></div>
       
-      <div className="relative container mx-auto px-4 py-8">
+      <div className="relative container mx-auto px-4 pt-8 pb-4">
         <div className="grid lg:grid-cols-2 gap-4 min-h-[85vh] items-center">
           
           {/* Men's Section */}
@@ -91,7 +91,7 @@ const Hero = () => {
         </div>
 
         {/* Bottom scroll indicator */}
-        <div className="flex justify-center mt-8 mb-4">
+        <div className="flex justify-center mt-4 mb-0">
           <div className="w-6 h-10 border-2 border-primary/60 rounded-full flex justify-center animate-bounce">
             <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
           </div>

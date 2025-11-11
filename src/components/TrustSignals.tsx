@@ -2,7 +2,7 @@ import { Shield, Truck, RefreshCw, Award, Clock, Phone } from "lucide-react";
 
 const TrustSignals = () => {
   return (
-    <section className="py-12 bg-secondary">
+    <section className="pt-8 pb-12 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           <div className="text-center">

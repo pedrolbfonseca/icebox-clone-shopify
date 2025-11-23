@@ -1,4 +1,4 @@
-import { ShoppingBag, Search, User, LogOut, Menu, X } from "lucide-react";
+import { Search, User, LogOut, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { useState } from "react";
 import LogoProcessor from "./LogoProcessor";
+import { CartDrawer } from "./CartDrawer";
 
 const Header = () => {
   const { user, signOut } = useAuth();
@@ -91,6 +92,7 @@ const Header = () => {
 
           {/* Actions */}
           <div className="flex items-center space-x-2 lg:space-x-4">
+            <CartDrawer />
             {user ? (
               <div className="hidden lg:flex items-center space-x-2">
                 <span className="text-sm text-muted-foreground hidden md:inline">

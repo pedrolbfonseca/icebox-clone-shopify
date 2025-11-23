@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ProductGrid from "@/components/ProductGrid";
+import ShopifyProductGrid from "@/components/ShopifyProductGrid";
 import Categories from "@/components/Categories";
 import TrustSignals from "@/components/TrustSignals";
 import Testimonials from "@/components/Testimonials";
@@ -15,7 +15,7 @@ const Index = () => {
       <Hero />
       <TrustSignals />
       <Categories />
-      <ProductGrid />
+      <ShopifyProductGrid />
       <ChainSizeGuide />
       <AboutUs />
       <Testimonials />

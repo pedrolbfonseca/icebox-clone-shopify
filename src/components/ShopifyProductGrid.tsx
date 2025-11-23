@@ -106,77 +106,97 @@ const ShopifyProductGrid = () => {
   }
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-6">
             FEATURED <span className="text-primary">PRODUCTS</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Discover our exclusive selection of premium jewelry, 
-            carefully curated for you
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-2">
+            Discover our exclusive collection of luxury jewelry
+          </p>
+          <p className="text-sm text-primary font-semibold">
+            ✨ Free shipping on orders above CAD $500
           </p>
         </div>
 
-        <div className="flex md:grid overflow-x-auto md:overflow-x-visible md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 snap-x snap-mandatory md:snap-none pb-4 md:pb-0 -mx-4 px-4 md:mx-0 scrollbar-hide">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
-            <Link 
+            <Link
               key={product.node.id}
               to={`/product/${product.node.handle}`}
-              className="flex-shrink-0 w-[280px] md:w-auto snap-start"
+              className="group bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 overflow-hidden hover:-translate-y-2"
             >
-              <Card className="group cursor-pointer overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300 h-full">
-                <div className="relative overflow-hidden">
-                  <div className="aspect-square bg-muted flex items-center justify-center relative">
-                    {product.node.images.edges[0]?.node ? (
-                      <img 
-                        src={product.node.images.edges[0].node.url} 
+              <div className="relative overflow-hidden rounded-2xl bg-secondary/20 aspect-square">
+                {product.node.images?.edges?.[0]?.node && (
+                  <>
+                    <img
+                      src={product.node.images.edges[0].node.url}
+                      alt={product.node.images.edges[0].node.altText || product.node.title}
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                    />
+                    {product.node.images?.edges?.[1]?.node && (
+                      <img
+                        src={product.node.images.edges[1].node.url}
                         alt={product.node.title}
-                        className="w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 flex items-center justify-center">
-                        <span className="text-4xl font-bold text-primary/50">
-                          {product.node.title.charAt(0)}
-                        </span>
-                      </div>
                     )}
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="flex space-x-4">
-                      <Button 
-                        size="icon" 
-                        variant="secondary" 
-                        className="bg-primary hover:bg-primary/90"
-                        onClick={(e) => handleAddToCart(product, e)}
-                      >
-                        <ShoppingBag className="h-4 w-4" />
-                      </Button>
-                      <Button 
-                        size="icon" 
-                        variant="secondary"
-                        onClick={(e) => handleWishlistToggle(product, e)}
-                        className={user && isInWishlist(product.node.id) ? "bg-red-500 hover:bg-red-600" : ""}
-                      >
-                        <Heart className={`h-4 w-4 ${user && isInWishlist(product.node.id) ? 'fill-white text-white' : ''}`} />
-                      </Button>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </>
+                )}
+              </div>
+              
+              <div className="p-6">
+                <div className="mb-4">
+                  <h3 className="font-bold text-xl mb-2 text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                    {product.node.title}
+                  </h3>
+                  {product.node.description && (
+                    <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
+                      {product.node.description}
+                    </p>
+                  )}
+                </div>
+                
+                <div className="flex items-center justify-between mb-4">
+                  <p className="text-primary font-bold text-2xl">
+                    {product.node.priceRange.minVariantPrice.currencyCode}{' '}
+                    {parseFloat(product.node.priceRange.minVariantPrice.amount).toFixed(2)}
+                  </p>
+                  <div className="flex items-center gap-1">
+                    <span className="text-yellow-500">★★★★★</span>
+                    <span className="text-xs text-muted-foreground ml-1">(4.9)</span>
                   </div>
                 </div>
 
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-card-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                    {product.node.title}
-                  </h3>
-                  
-                  <div className="flex items-center space-x-2">
-                    <span className="text-lg font-bold text-foreground">
-                      {product.node.priceRange.minVariantPrice.currencyCode} ${parseFloat(product.node.priceRange.minVariantPrice.amount).toFixed(2)}
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
+                <div className="flex gap-3">
+                  <Button
+                    onClick={(e) => handleAddToCart(product, e)}
+                    className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    size="lg"
+                  >
+                    <ShoppingBag className="h-5 w-5 mr-2" />
+                    Add to Cart
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={(e) => handleWishlistToggle(product, e)}
+                    className={`shadow-md hover:shadow-lg transition-all duration-300 ${
+                      isInWishlist(product.node.id)
+                        ? "bg-primary/10 border-primary text-primary"
+                        : "hover:border-primary/50"
+                    }`}
+                  >
+                    <Heart
+                      className={`h-5 w-5 ${
+                        isInWishlist(product.node.id) ? "fill-current" : ""
+                      }`}
+                    />
+                  </Button>
+                </div>
+              </div>
             </Link>
           ))}
         </div>

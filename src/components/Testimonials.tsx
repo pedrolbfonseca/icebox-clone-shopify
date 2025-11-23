@@ -34,59 +34,50 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-16 bg-background">
+    <section className="py-20 bg-gradient-to-b from-secondary/30 to-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            WHAT OUR <span className="text-primary">CUSTOMERS SAY</span>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-6">
+            WHAT OUR <span className="text-primary">CLIENTS</span> SAY
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied customers across Canada have to say about their Hype Company experience.
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
+            Real experiences from our satisfied customers
           </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-card border-border hover:border-primary/50 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className={`h-4 w-4 ${i < testimonial.rating ? 'fill-primary text-primary' : 'text-muted-foreground'}`} 
-                    />
-                  ))}
-                </div>
-                
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                  "{testimonial.comment}"
-                </p>
-                
-                <div className="border-t border-border pt-4">
-                  <p className="font-semibold text-card-foreground text-sm">{testimonial.name}</p>
-                  <p className="text-xs text-muted-foreground">{testimonial.location}</p>
-                  <p className="text-xs text-primary mt-1">Purchased: {testimonial.product}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <div className="flex items-center justify-center space-x-8 text-muted-foreground">
-            <div className="text-center">
-              <p className="text-2xl font-bold text-foreground">4.9/5</p>
-              <p className="text-sm">Average Rating</p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
+            <div className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border">
+              <p className="text-4xl font-bold text-primary mb-2">4.9/5</p>
+              <p className="text-sm text-muted-foreground">Average Rating</p>
             </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold text-foreground">2,500+</p>
-              <p className="text-sm">Happy Customers</p>
+            <div className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border">
+              <p className="text-4xl font-bold text-primary mb-2">5,000+</p>
+              <p className="text-sm text-muted-foreground">Happy Customers</p>
             </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold text-foreground">99%</p>
-              <p className="text-sm">Satisfaction Rate</p>
+            <div className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border">
+              <p className="text-4xl font-bold text-primary mb-2">98%</p>
+              <p className="text-sm text-muted-foreground">Satisfaction Rate</p>
             </div>
           </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1">
+              <div className="flex mb-6">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <span key={i} className="text-yellow-500 text-2xl">★</span>
+                ))}
+              </div>
+              <p className="text-foreground mb-6 text-lg leading-relaxed">"{testimonial.comment}"</p>
+              <div className="border-t border-border pt-6">
+                <p className="font-bold text-foreground text-lg">{testimonial.name}</p>
+                <p className="text-sm text-muted-foreground mb-2">{testimonial.location}</p>
+                <p className="text-xs text-primary font-semibold bg-primary/10 inline-block px-3 py-1 rounded-full">
+                  ✓ Verified Purchase: {testimonial.product}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

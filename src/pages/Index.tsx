@@ -1,12 +1,11 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ShopifyProductGrid from "@/components/ShopifyProductGrid";
-import Categories from "@/components/Categories";
 import TrustSignals from "@/components/TrustSignals";
+import ProductBenefits from "@/components/ProductBenefits";
+import ScarcityBanner from "@/components/ScarcityBanner";
 import Testimonials from "@/components/Testimonials";
-import AboutUs from "@/components/AboutUs";
 import Footer from "@/components/Footer";
-import ChainSizeGuide from "@/components/ChainSizeGuide";
 
 const Index = () => {
   return (
@@ -14,10 +13,9 @@ const Index = () => {
       <Header />
       <Hero />
       <TrustSignals />
-      <Categories />
       <ShopifyProductGrid />
-      <ChainSizeGuide />
-      <AboutUs />
+      <ProductBenefits />
+      <ScarcityBanner />
       <Testimonials />
       <Footer />
     </div>

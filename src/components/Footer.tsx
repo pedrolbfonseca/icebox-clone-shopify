@@ -1,9 +1,38 @@
-import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin, Clock, ShoppingBag } from "lucide-react";
+import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 import LogoProcessor from "./LogoProcessor";
 
 const Footer = () => {
   return (
-    <footer className="bg-background border-t border-border">
+    <footer className="bg-gradient-to-b from-background to-secondary/30 border-t border-border">
+      {/* CTA Section */}
+      <div className="bg-primary/10 border-b border-primary/20">
+        <div className="container mx-auto px-4 py-12">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+              READY TO ELEVATE YOUR <span className="text-primary">STYLE?</span>
+            </h2>
+            <p className="text-muted-foreground text-lg mb-8">
+              Join thousands of satisfied customers who trust HYPE CO for premium luxury jewelry
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/category/bracelets">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 shadow-lg">
+                  <ShoppingBag className="h-5 w-5 mr-2" />
+                  Shop Now
+                </Button>
+              </Link>
+              <Link to="/auth">
+                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 font-semibold px-8">
+                  Create Account
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           

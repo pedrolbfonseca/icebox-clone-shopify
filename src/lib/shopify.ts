@@ -1,9 +1,9 @@
 import { toast } from "sonner";
 
 export const SHOPIFY_API_VERSION = '2025-07';
-export const SHOPIFY_STORE_PERMANENT_DOMAIN = 'icebox-clone-store-um0v9.myshopify.com';
+export const SHOPIFY_STORE_PERMANENT_DOMAIN = 'hype-co-jewelry.myshopify.com';
 export const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
-export const SHOPIFY_STOREFRONT_TOKEN = 'aee0f0673dc83b657a615e156dee19c1';
+export const SHOPIFY_STOREFRONT_TOKEN = 'REPLACE_WITH_REAL_TOKEN';
 
 export interface ShopifyProduct {
   node: {
